@@ -1,0 +1,29 @@
+{
+  "name": "explorethenews-frontend",
+  "version": "1.0.0",
+  "description": "News search service, allows user save and keep a personal board of selected news",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf dist && cross-env NODE_ENV=production webpack --mode production",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --mode development --open --watch",
+    "start": "cross-env NODE_ENV=production gh-pages -d dist",
+    "deploy": "npm run build && scp -r ./dist/* silino@130.193.51.34:/home/silino/explorethenews-frontend",
+    "eslint": "eslint . --ext .js",
+    "eslintFix": "eslint . --ext .js --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silinosilino/explorethenews-frontend.git"
+  },
+  "author": "Elena Silina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/silinosilino/explorethenews-frontend/issues"
+  },
+  "homepage": "https://github.com/silinosilino/explorethenews-frontend#readme",
+  "devDependencies": {
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
+}
