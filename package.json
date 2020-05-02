@@ -4,8 +4,8 @@
   "description": "News search service, allows user save and keep a personal board of selected news",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf dist && cross-env NODE_ENV=production webpack --mode production",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --mode development --open --watch",
+    "build": "webpack --mode production",
+    "dev": "webpack-dev-server --mode development --open --watch",
     "start": "cross-env NODE_ENV=production gh-pages -d dist",
     "deploy": "npm run build && scp -r ./dist/* silino@130.193.51.34:/home/silino/explorethenews-frontend",
     "eslint": "eslint . --ext .js",
@@ -22,8 +22,18 @@
   },
   "homepage": "https://github.com/silinosilino/explorethenews-frontend#readme",
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^3.5.3",
+    "mini-css-extract-plugin": "^0.9.0",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "core-js": "^3.4.1"
   }
 }
