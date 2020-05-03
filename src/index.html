@@ -5,10 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>ExploreTheNews</title>
-  <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.chunks.main.css %>">
+  <link rel="stylesheet" href="vendor/normalize.css">
+  <!-- <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.chunks.main.css %>"> -->
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <h1>Hello</h1>
+<body class="page">
+
+  <header class="header">
+    <img src="./images/logo.png" class="logo" alt="logo">
+      <div class="header__lang-buttons">
+          <a href="" class="header__lang-button  header__lang-button_active">Ru</a>
+          <a href="" class="header__lang-button">En</a>
+      </div>
+  </header>
+
+
+  <main class="content">
+
+    <section class="search">
+      <!-- <img src="images/search-background-image.jpg" class="logo" alt="logo"> -->
+    </section>
+
+    <section class="search-results">
+    </section>
+
+    <section class="about-author">
+    </section>
+
+
+
+  </mail>
+  <footer class="footer"></footer>
   <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
 </body>
 </html>
