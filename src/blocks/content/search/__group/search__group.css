@@ -1,0 +1,4 @@
+.search__group{
+  flex-flow: column;
+  align-items: flex-start;
+}

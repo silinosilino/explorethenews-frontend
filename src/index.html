@@ -12,18 +12,29 @@
 <body class="page">
 
   <header class="header">
-    <img src="./images/logo.png" class="logo" alt="logo">
-      <div class="header__lang-buttons">
-          <a href="" class="header__lang-button  header__lang-button_active">Ru</a>
-          <a href="" class="header__lang-button">En</a>
-      </div>
+    <p class="logo">NewsExplorer</p>
+    <nav>
+      <ul class="menue">
+        <li class="menue__item"><a class="link" href="">Главная</a></li>
+        <li class="menue__item menue__item_type_disabled"><a class="link" href="">Сохраненные статьи</a></li>
+        <li class="menue__item menue__item_type_feachered"><a class="link" href="">Авторизоваться</a></li>
+        <!-- <li class="menue__item menue__item_disabled"><a class="link" href="">User</a></li> -->
+      </ul>
+    </nav>
   </header>
 
 
   <main class="content">
 
     <section class="search">
-      <!-- <img src="images/search-background-image.jpg" class="logo" alt="logo"> -->
+      <div class="search__group">
+        <h1 class="search__title">Что в мире творится?</h1>
+        <h2 class="search__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</h2>
+        <form class="search__form">
+          <input type="text" required name="search" class="search__input" placeholder="Природа">
+          <button class="button button_type_search">Искать</button>
+        </form>
+      </div>
     </section>
 
     <section class="search-results">
