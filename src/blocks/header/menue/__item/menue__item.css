@@ -9,14 +9,14 @@
   display: flex;
   /* justify-content: center; */
   align-items: center;
-  border-bottom: solid white 3px;
+  /* border-bottom: solid white 3px; */
 }
 
-/* .menue__item a:hover{
+.menue__item:hover{
   border-bottom: 3px solid white;
 
-} */
+}
 
-/* .menue__item a.active {
+/* .menue__item.active {
   border-bottom: 3px solid white;
 } */
