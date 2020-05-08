@@ -1,0 +1,7 @@
+.about-author__grid{
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 56px;
+  margin-left: 104px;
+  margin-right: 104px;
+}

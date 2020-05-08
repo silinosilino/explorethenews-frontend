@@ -1,0 +1,10 @@
+.search-results__news-photo{
+  /* max-height: 272px; */
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  margin-bottom: 20px;
+
+}

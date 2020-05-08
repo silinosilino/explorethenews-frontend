@@ -1,0 +1,11 @@
+.search-results__news-grid{
+  display: grid;
+  /* width: calc(100% - 208px); */
+  /* width: 100%; */
+  margin-bottom: 56px;
+  grid-template-columns: repeat(3, auto);
+  grid-column-gap: 16px;
+  /* grid-template-columns: repeat(3, calc(100% - 208px - 32px)/3); */
+  /* display: flex;
+  flex-flow: row; */
+}

@@ -1,0 +1,12 @@
+.search-results__subtitle{
+  width: 712px;
+  height: 46px;
+  font-family: Roboto Slab;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 46px;
+  color: #1A1B22;
+  margin-bottom: 64px;
+  align-self: flex-start;
+}
