@@ -1,0 +1,91 @@
+.search-results__flag{
+  margin-top: 11px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 14px;
+  height: 19px;
+  /* viewBox: 0 0 14 19; */
+  fill: none;
+  transition: all 0.35s ease
+}
+
+/* .search-results__flag:active{
+  fill: blue;
+} */
+
+
+.search-results__flag-path{
+  stroke: #B6BCBF;
+  stroke-width: 2px;
+  transition: all 0.35s ease;
+}
+
+/* .search-results__flag-path:active{
+  stroke: blue; */
+  /* fill: blue; */
+
+
+
+
+
+
+
+/* .search-results_____flag{
+    width: 14px;
+    height: 19px;
+
+
+    box-sizing: content-box;
+    /* padding-top: 15px; */
+    /* position: relative; */
+    /* background: blue; */
+    /* margin-top: 11px;
+    margin-right: auto;
+    margin-left: auto;
+    border-left: 3px solid blue;
+    border-right: 3px solid blue;
+    border-top: 3px solid blue;
+    position: relative; */
+
+    /* top: 11px;
+    left: 13px; */
+    /* color: white;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-align: center;
+    text-transform: uppercase; */
+  /* }
+
+.search-results_____flag:hover{
+  border-left: 3px solid blue;
+  border-right: 3px solid blue;
+  border-top: 3px solid red;
+}
+
+  .search-results_____flag::after {
+    width: 14;
+    height: 7; */
+    /* border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid red; */
+    /* border-left: 7px solid blue;
+    border-right: 7px solid blue;
+    border-bottom: 14px solid transparent;
+    background: red;
+    z-index: 5;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+
+ */
+
+    /* content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 13px solid white;
+    border-left: 55px solid transparent;
+    border-right: 55px solid transparent;*/
+  /* } */

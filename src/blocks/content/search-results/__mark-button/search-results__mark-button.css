@@ -6,5 +6,20 @@
   position: absolute;
   top: 24px;
   right: 24px;
+  padding: 0px;
 
+}
+
+.search-results__mark-button:hover .search-results__flag-path{
+  stroke: #1A1B22;
+}
+
+.search-results__mark-button:active .search-results__flag{
+  fill: blue;
+  transition: 0.01s ease;
+}
+
+.search-results__mark-button:active .search-results__flag-path{
+  stroke: blue;
+  transition: 0.01s ease;
 }

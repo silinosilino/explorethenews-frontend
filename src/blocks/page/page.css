@@ -22,4 +22,7 @@
   }
   h4{
     margin: 0px 0px;
-}
+  }
+  button:focus{
+    outline: none;
+  }
