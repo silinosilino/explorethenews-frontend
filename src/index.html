@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>ExploreTheNews</title>
-  <link rel="stylesheet" href="vendor/normalize.css">
+  <link rel="stylesheet" href="./vendor/normalize.css">
   <!-- <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.chunks.main.css %>"> -->
   <link rel="stylesheet" href="style.css">
 </head>
@@ -15,9 +15,9 @@
     <p class="logo">NewsExplorer</p>
     <nav class= header__navigation>
       <ul class="menue">
-        <li class="menue__item"><a class="link" href="">Главная</a></li>
-        <li class="menue__item menue__item_type_disabled"><a class="link" href="">Сохраненные статьи</a></li>
-        <li class="menue__item "><a class="link menue__item_type_feachered" href="">Авторизоваться</a></li>
+        <li class="menue__item"><a class="link link_type_header" href="">Главная</a></li>
+        <li class="menue__item menue__item_type_disabled"><a class="link link_type_header" href="">Сохраненные статьи</a></li>
+        <li class="menue__item "><a class="link link_type_header menue__item_type_feachered" href="">Авторизоваться</a></li>
       </ul>
     </nav>
   </header>
@@ -84,14 +84,16 @@
   </mail>
   <footer class="footer">
     <p class="footer__copyright">&copy; 2020 ExploreTheNews, Powered by News API</p>
-    <ul class="footer__navigation">
-        <li><a class="link" href="https://explorethenews.tk/">Главная</a></li>
-        <li><a class="link" href="https://praktikum.yandex.ru/">Яндекс.Практикум</a></li>
-        </ul>
-    <div class="footer__social-icons">
-      <img src="" class="gh">
-      <img src="" class="fb fb_type_square">
-    </div>
+    <nav class="footer__links">
+      <ul class="footer__navigation">
+          <li><a class="link link_type_footer" href="https://explorethenews.tk/">Главная</a></li>
+          <li><a class="link link_type_footer" href="https://praktikum.yandex.ru/">Яндекс.Практикум</a></li>
+          </ul>
+      <ul class="footer__social-icons">
+        <li><a href="https://github.com/silinosilino/explorethenews-frontend" class="link"><img src="./images/github.png" class="footer__icon"></a></li>
+        <li><a href="www.facebook.com" class="link"><img src="./images/iconmonstr-facebook-6.png" class="footer__icon footer__icon_last-item"></a></li>
+      </ul>
+    </nav>
   <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
 </body>
 </html>

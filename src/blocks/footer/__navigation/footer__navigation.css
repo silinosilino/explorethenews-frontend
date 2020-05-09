@@ -1,0 +1,9 @@
+.footer__navigation{
+  list-style-type: none;
+  display: flex;
+  width: 304px;
+  justify-content: space-between;
+  box-sizing: border-box;
+  /* padding: 0; */
+
+}
