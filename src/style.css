@@ -9,8 +9,7 @@
 @import url("./blocks/button/button.css");
 @import url("./blocks/button/_type/button_type_search.css");
 @import url("./blocks/button/_type/button_type_showmore.css");
-
-
+@import url("./blocks/tooltip/tooltip.css");
 
 @font-face {
   src: url("./vendor/fonts/inter-regular.woff") format("woff");

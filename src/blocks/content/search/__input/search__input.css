@@ -13,3 +13,11 @@
   backdrop-filter: blur(8px);
   border-radius: 100px;
   }
+
+  .search__input:focus{
+    outline: none;
+  }
+
+  .search__input:focus ~ .button_type_search{
+    background-color: #347EFF;
+  }
