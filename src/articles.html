@@ -7,17 +7,16 @@
   <title>ExploreTheNews</title>
   <link rel="stylesheet" href="./vendor/normalize.css">
   <!-- <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.chunks.main.css %>"> -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body class="page">
 
-  <header class="header">
+  <header class="header header_theme_dark">
     <p class="logo">NewsExplorer</p>
     <nav class= header__navigation>
       <ul class="menue">
         <li class="menue__item"><a class="link link_type_header" href="./index.html">Главная</a></li>
-        <!-- <li class="menue__item menue__item_type_disabled"><a class="link link_type_header" href="./pages/articles.html">Сохраненные статьи</a></li> -->
-        <li class="menue__item"><a class="link link_type_header" href="./articles.html">Сохраненные статьи</a></li>
+        <li class="menue__item menue__item_type_disabled"><a class="link link_type_header" href="./articles.html">Сохраненные статьи</a></li>
         <li class="menue__item "><a class="link link_type_header menue__item_type_feachered" href="">Авторизоваться</a></li>
       </ul>
     </nav>
@@ -26,26 +25,10 @@
 
   <main class="content">
 
-    <section class="search">
-      <div class="search__group">
-        <h1 class="search__title">Что в мире творится?</h1>
-        <h2 class="search__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</h2>
-        <form class="search__form">
-          <input type="text" required name="search" class="search__input" placeholder="Природа">
-          <button class="button button_type_search">Искать</button>
-        </form>
-      </div>
-    </section>
-
-    <section class="preloader">
-      <div class="preloader__circle-preloader"></div>
-      <p class="preloader__text">Идёт поиск новостей...</p>
-    </section>
-
-    <section class="nothing-found">
-      <img src="./images/not-found_v1.png" class="nothing-found__picture"></div>
-      <p class="nothing-found__title">Ничего не найдено</p>
-      <p class="nothing-found__text">К сожалению, по вашему запросу ничего не найдено.</p>
+    <section class="intro">
+      <h2 class="subtitle">Сохранённые статьи</h2>
+      <h1 class="title">Грета, у вас 5 сохранённых статей</h1>
+      <p class="text">По ключевым словам: Природа, Тайга и 2 другим</p>
     </section>
 
     <section class="search-results">
@@ -89,18 +72,6 @@
       </div>
       <button class="button button_type_showmore">Показать ещё</button>
     </section>
-
-    <section class="about-author">
-      <div class="about-author__grid">
-        <img class="about-author__picture" src="./images/avatar/1.jpg">
-        <div class="about-author__text-container">
-          <h4 class="about-author__title">Об авторе</h4>
-          <p class="about-author__text">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.  Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.</p>
-        </div>
-      </div>
-    </section>
-
-
 
   </main>
   <footer class="footer">

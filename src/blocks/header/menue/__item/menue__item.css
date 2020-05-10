@@ -1,5 +1,4 @@
 .menue__item{
-  color: white;
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;
@@ -12,10 +11,13 @@
   /* border-bottom: solid white 3px; */
 }
 
+
+
 .menue__item:hover{
   border-bottom: 3px solid white;
 
 }
+
 
 /* .menue__item.active {
   border-bottom: 3px solid white;
