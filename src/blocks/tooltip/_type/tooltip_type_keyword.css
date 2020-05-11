@@ -1,0 +1,9 @@
+.tooltip_type_keyword{
+  display: block;
+  left: 24px;
+  top: 24px;
+  max-width: 182px;
+  font-size: 14px;
+  line-height: 24px;
+  padding: 8px 12px 8px 12px;
+}

@@ -11,6 +11,8 @@
 @import url("./blocks/button/_type/button_type_search.css");
 @import url("./blocks/button/_type/button_type_showmore.css");
 @import url("./blocks/tooltip/tooltip.css");
+@import url("./blocks/tooltip/_type/tooltip_type_keyword.css");
+@import url("./blocks/tooltip/_type/tooltip_type_help.css");
 
 @font-face {
   src: url("./vendor/fonts/inter-regular.woff") format("woff");
