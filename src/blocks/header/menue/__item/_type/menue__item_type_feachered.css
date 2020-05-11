@@ -2,4 +2,6 @@
   border: solid white 1px;
   border-radius: 100px;
   padding: 12px;
+  display: flex;
+  align-items: center;
 }
