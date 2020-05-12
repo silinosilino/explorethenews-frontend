@@ -1,7 +1,11 @@
-// import Popup from './scripts/popup';
+import Popup from './scripts/popup';
 // import PopupSignup from './scripts/popupSignup'
 
 import "./style.css";
 
-// const signupButton = document.querySelector('.menue__item_feachered');
-// const popupSignup = new PopupSignup(signupButton);
+const signupButton = document.querySelector('.logo');
+console.log(signupButton);
+const popupSignup = new Popup(signupButton);
+popupSignup.setEventListeners();
+popupSignup.configureInputPopup();
+popupSignup.open();
