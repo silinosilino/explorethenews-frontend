@@ -1,0 +1,26 @@
+.button_type_popup {
+  width: 100%;
+  /* height: 50px; */
+  /* border: 1px solid rgba(0, 0, 0, .2);
+  color: rgba(0, 0, 0, .2); */
+  /* font-size: 18px; */
+  background: #E6E8EB;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #B6BCBF;
+  margin-bottom: 16px;
+
+
+  /* display: flex;
+  align-items: center;
+  text-align: center; */
+}
+
+.button_type_popup_is-active {
+  color: white;
+  background-color: black;
+}

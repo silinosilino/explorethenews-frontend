@@ -1,4 +1,4 @@
-import Popup from './scripts/popup';
+import Popup from './js/popup';
 // import PopupSignup from './scripts/popupSignup'
 
 import "./style.css";

@@ -6,20 +6,26 @@ export default class Popup{
       const root = document.querySelector('.root');
       root.appendChild(this.popup);
       this.popupCloser = document.createElement('img');
-      this.popupCloser.src = "./images/close.svg";
+      this.popupCloser.src ="../images/back.png";
       this.popupCloser.classList.add('popup__close');
       this.popupContent = document.createElement('div');
       this.popupContent.classList.add('popup__content')
       this.popup.appendChild(this.popupContent);
       this.popupContent.appendChild(this.popupCloser);
       this.popupContent.insertAdjacentHTML('afterbegin', `
-      <h3 class="popup__title">Редактировать профиль</h3>
+      <h3 class="popup__title">Регистрация</h3>
       <form class="popup__form" name="profile">
-          <input type="text" name="username" class="popup__input popup__input_type_name" placeholder="Имя">
+          <span class="popup__input-title">Email</span>
+          <input type="email" name="email" class="popup__input popup__input_type_name" placeholder="Введите почту">
           <span id="error-username" class="error-message"></span>
-          <input type="text" name="userjob" class="popup__input popup__input_type_name" placeholder="О себе">
+          <span class="popup__input-title">Пароль</span>
+          <input type="text" name="password" class="popup__input popup__input_type_name" placeholder="Введите пароль">
           <span id="error-userjob" class="error-message"></span>
-          <button type="submit" class="button popup__button">Сохранить</button>
+          <span class="popup__input-title">Имя</span>
+          <input type="text" name="username" class="popup__input popup__input_type_name" placeholder="Введите своё имя">
+          <span id="error-userjob" class="error-message"></span>
+          <button type="submit" class="button button_type_popup">Зарегистрироваться</button>
+          <span class="popup__input-title popup__input-title_type_centered">или <a class="link link_type_popup" href="">Войти</a></span>
       </form>
   `);
   }
