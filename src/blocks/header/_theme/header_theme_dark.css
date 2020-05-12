@@ -15,7 +15,6 @@ margin: 0px;
 .header_theme_dark .menue__item_type_feachered{
   border: 1px solid #1A1B22;
 }
-.header_theme_dark .menue__item:hover{
+.header_theme_dark .menue__item_type_current{
   border-bottom: 3px solid #1A1B22;
-
 }

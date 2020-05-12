@@ -21,10 +21,6 @@
   fill: #1A1B22;
 }
 
-/* .search-results__mark-button:hover .search-results__flag-path{
-  stroke: #1A1B22;
-} */
-
 .search-results__mark-button:hover .tooltip{
   display: block;
 }
@@ -34,8 +30,3 @@
   stroke: blue;
   transition: 0.01s ease;
 }
-
-/* .search-results__mark-button:active .search-results__flag-pic{
-  stroke: blue;
-  transition: 0.01s ease;
-} */

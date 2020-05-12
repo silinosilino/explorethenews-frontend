@@ -10,121 +10,125 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="page">
+  <div class="root"></div>
 
-  <header class="header">
-    <p class="logo">NewsExplorer</p>
-    <nav class= header__navigation>
-      <ul class="menue">
-        <li class="menue__item"><a class="link link_type_header" href="./index.html">Главная</a></li>
-        <!-- <li class="menue__item menue__item_type_disabled"><a class="link link_type_header" href="./pages/articles.html">Сохраненные статьи</a></li> -->
-        <li class="menue__item"><a class="link link_type_header" href="./articles.html">Сохраненные статьи</a></li>
-        <li class="menue__item "><a class="link link_type_header menue__item_type_feachered" href="">Авторизоваться</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header class="header">
+      <p class="logo">NewsExplorer</p>
+      <nav class= header__navigation>
+        <ul class="menue">
+          <li class="menue__item menue__item_type_current"><a class="link link_type_header" href="./index.html">Главная</a></li>
+          <!-- <li class="menue__item menue__item_type_disabled"><a class="link link_type_header" href="./pages/articles.html">Сохраненные статьи</a></li> -->
+          <li class="menue__item"><a class="link link_type_header" href="./articles.html">Сохраненные статьи</a></li>
+          <li class="menue__item "><a class="link link_type_header menue__item_type_feachered" href="">Авторизоваться</a></li>
+        </ul>
+      </nav>
+    </header>
 
 
-  <main class="content">
+    <main class="content">
 
-    <section class="search">
-      <div class="search__group">
-        <h1 class="search__title">Что в мире творится?</h1>
-        <h2 class="search__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</h2>
-        <form class="search__form">
-          <input type="text" required name="search" class="search__input" placeholder="Природа">
-          <button class="button button_type_search">Искать</button>
-        </form>
-      </div>
-    </section>
+      <section class="search">
+        <div class="search__group">
+          <h1 class="search__title">Что в мире творится?</h1>
+          <h2 class="search__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</h2>
+          <form class="search__form">
+            <input type="text" required name="search" class="search__input" placeholder="Природа">
+            <button class="button button_type_search">Искать</button>
+          </form>
+        </div>
+      </section>
 
-    <section class="preloader">
-      <div class="preloader__circle-preloader"></div>
-      <p class="preloader__text">Идёт поиск новостей...</p>
-    </section>
+      <section class="preloader">
+        <div class="preloader__circle-preloader"></div>
+        <p class="preloader__text">Идёт поиск новостей...</p>
+      </section>
 
-    <section class="nothing-found">
-      <img src="./images/not-found_v1.png" class="nothing-found__picture"></div>
-      <p class="nothing-found__title">Ничего не найдено</p>
-      <p class="nothing-found__text">К сожалению, по вашему запросу ничего не найдено.</p>
-    </section>
+      <section class="nothing-found">
+        <img src="<%=require('./images/not-found_v1.png').default%>" class="nothing-found__picture"></div>
+        <p class="nothing-found__title">Ничего не найдено</p>
+        <p class="nothing-found__text">К сожалению, по вашему запросу ничего не найдено.</p>
+      </section>
 
-    <section class="search-results">
-      <h3 class="search-results__subtitle">Результаты поиска</h3>
-      <div class="search-results__news-grid">
-        <div class="search-results__news-card">
-          <img class="search-results__news-photo" src="./images/cards/image_08.jpg">
-          <button class="search-results__mark-button">
-            <svg class="search-results__icon search-results__icon_type_flag">
-              <path class="search-results__flag-pic">
-            </svg>
-            <span class="tooltip tooltip_type_help">Войдите, чтобы сохранять статьи</span>
-          </button>
-          <div class="search-results__text-container">
-            <p class="search-results__date">2 августа, 2019</p>
-            <h4 class="search-results__title">Национальное достояние – парки</h4>
-            <p class="search-results__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
-            <p class="search-results__source">Лента.ру</p>
+      <section class="search-results">
+        <h3 class="search-results__subtitle">Результаты поиска</h3>
+        <div class="search-results__news-grid">
+          <div class="search-results__news-card">
+            <img class="search-results__news-photo" src="./images/cards/image_08.jpg">
+            <button class="search-results__mark-button">
+              <svg class="search-results__icon search-results__icon_type_flag">
+                <path class="search-results__flag-pic">
+              </svg>
+              <span class="tooltip tooltip_type_help">Войдите, чтобы сохранять статьи</span>
+            </button>
+            <div class="search-results__text-container">
+              <p class="search-results__date">2 августа, 2019</p>
+              <h4 class="search-results__title">Национальное достояние – парки</h4>
+              <p class="search-results__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
+              <p class="search-results__source">Лента.ру</p>
+            </div>
+          </div>
+          <div class="search-results__news-card">
+            <img class="search-results__news-photo" src="./images/cards/image_04.jpg">
+            <button class="search-results__mark-button">
+              <svg class="search-results__icon search-results__icon_type_flag">
+                <path class="search-results__flag-pic">
+              </svg>
+              <span class="tooltip tooltip_type_help">Войдите, чтобы сохранять статьи</span>
+            </button>
+            <div class="search-results__text-container">
+              <p class="search-results__date">2 августа, 2019</p>
+              <h4 class="search-results__title">Лесные огоньки: история одной фотографии </h4>
+              <p class="search-results__text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</p>
+              <p class="search-results__source">Медуза</p>
+            </div>
+          </div>
+          <div class="search-results__news-card">
+            <img class="search-results__news-photo" src="./images/cards/image_07.jpg">
+            <button class="search-results__mark-button">
+              <svg class="search-results__icon search-results__icon_type_flag">
+                <path class="search-results__flag-pic">
+              </svg>
+              <span class="tooltip tooltip_type_help">Войдите, чтобы сохранять статьи</span>
+            </button>
+            <div class="search-results__text-container">
+              <p class="search-results__date">2 августа, 2019</p>
+              <h4 class="search-results__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h4>
+              <p class="search-results__text">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
+              <p class="search-results__source">Риа </p>
+            </div>
           </div>
         </div>
-        <div class="search-results__news-card">
-          <img class="search-results__news-photo" src="./images/cards/image_04.jpg">
-          <button class="search-results__mark-button">
-            <svg class="search-results__icon search-results__icon_type_flag">
-              <path class="search-results__flag-pic">
-            </svg>
-            <span class="tooltip tooltip_type_help">Войдите, чтобы сохранять статьи</span>
-          </button>
-          <div class="search-results__text-container">
-            <p class="search-results__date">2 августа, 2019</p>
-            <h4 class="search-results__title">Лесные огоньки: история одной фотографии </h4>
-            <p class="search-results__text">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</p>
-            <p class="search-results__source">Медуза</p>
+        <button class="button button_type_showmore">Показать ещё</button>
+      </section>
+
+      <section class="about-author">
+        <div class="about-author__grid">
+          <img class="about-author__picture" src="./images/avatar/1.jpg">
+          <div class="about-author__text-container">
+            <h4 class="about-author__title">Об авторе</h4>
+            <p class="about-author__text">Привет! Меня зовут Елена Силина, и я начинающий вэб-разработчик. Умею верстать в HTML и CSS, знаю (и люблю!) JavaScript. Уверенно использую Git, Node js, Webpack. Могу настроить сервер, понимаю как устроен бэк-энд. Мне нравится разрабатывать пользовательский интерфейс,  делать его простым и удобным.  В моей копилке несколько небольших full-stack проектов, с использованием Express, Mongoose и др.</p>
           </div>
         </div>
-        <div class="search-results__news-card">
-          <img class="search-results__news-photo" src="./images/cards/image_07.jpg">
-          <button class="search-results__mark-button">
-            <svg class="search-results__icon search-results__icon_type_flag">
-              <path class="search-results__flag-pic">
-            </svg>
-            <span class="tooltip tooltip_type_help">Войдите, чтобы сохранять статьи</span>
-          </button>
-          <div class="search-results__text-container">
-            <p class="search-results__date">2 августа, 2019</p>
-            <h4 class="search-results__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h4>
-            <p class="search-results__text">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
-            <p class="search-results__source">Риа </p>
-          </div>
-        </div>
-      </div>
-      <button class="button button_type_showmore">Показать ещё</button>
-    </section>
+      </section>
 
-    <section class="about-author">
-      <div class="about-author__grid">
-        <img class="about-author__picture" src="./images/avatar/1.jpg">
-        <div class="about-author__text-container">
-          <h4 class="about-author__title">Об авторе</h4>
-          <p class="about-author__text">Привет! Меня зовут Елена Силина, и я начинающий вэб-разработчик. Умею верстать в HTML и CSS, знаю (и люблю!) JavaScript. Уверенно использую Git, Node js, Webpack. Могу настроить сервер, понимаю как устроен бэк-энд. Мне нравится разрабатывать пользовательский интерфейс,  делать его простым и удобным.  В моей копилке несколько небольших full-stack проектов, с использованием Express, Mongoose и др.</p>
-        </div>
-      </div>
-    </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">&copy; 2020 ExploreTheNews, Powered by News API</p>
+      <nav class="footer__links">
+        <ul class="footer__navigation">
+            <li><a class="link link_type_footer" href="https://explorethenews.tk/">Главная</a></li>
+            <li><a class="link link_type_footer" href="https://praktikum.yandex.ru/">Яндекс.Практикум</a></li>
+            </ul>
+        <ul class="footer__social-icons">
+          <li><a href="https://github.com/silinosilino/explorethenews-frontend" class="link"><img src="./images/github.png" class="footer__icon"></a></li>
+          <li><a href="www.facebook.com" class="link"><img src="./images/iconmonstr-facebook-6.png" class="footer__icon footer__icon_last-item"></a></li>
+        </ul>
+      </nav>
+    </footer>
 
+  </div>
 
-
-  </main>
-  <footer class="footer">
-    <p class="footer__copyright">&copy; 2020 ExploreTheNews, Powered by News API</p>
-    <nav class="footer__links">
-      <ul class="footer__navigation">
-          <li><a class="link link_type_footer" href="https://explorethenews.tk/">Главная</a></li>
-          <li><a class="link link_type_footer" href="https://praktikum.yandex.ru/">Яндекс.Практикум</a></li>
-          </ul>
-      <ul class="footer__social-icons">
-        <li><a href="https://github.com/silinosilino/explorethenews-frontend" class="link"><img src="./images/github.png" class="footer__icon"></a></li>
-        <li><a href="www.facebook.com" class="link"><img src="./images/iconmonstr-facebook-6.png" class="footer__icon footer__icon_last-item"></a></li>
-      </ul>
-    </nav>
-  <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+  <!-- <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script> -->
+  <!-- <script src="<%= htmlWebpackPlugin.files.chunks.popupSignup.entry %>"></script> -->
 </body>
 </html>
