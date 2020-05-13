@@ -12,7 +12,11 @@ export default class Popup{
       this.popupContent.classList.add('popup__content')
       this.popup.appendChild(this.popupContent);
       this.popupContent.appendChild(this.popupCloser);
-      this.popupContent.insertAdjacentHTML('afterbegin', `
+
+  }
+
+  setContent(){
+     this.popupContent.insertAdjacentHTML('afterbegin', `
       <h3 class="popup__title">Регистрация</h3>
       <form class="popup__form" name="profile">
           <span class="popup__input-title">Email</span>
@@ -52,12 +56,12 @@ export default class Popup{
       this.popup.classList.remove('popup_is-opened');
   }
 
-  // configureInputPopup(createValidator){
-    configureInputPopup(){
+  configureInputPopup(createValidator){
+    // configureInputPopup(){
 
       this.form = this.popup.querySelector('.popup__form');
       this.element.addEventListener('click', this.open.bind(this));
-      // createValidator(this.form).setEventListeners();
+      createValidator(this.form).setEventListeners();
       this.setFormEventListeners();
   }
 
