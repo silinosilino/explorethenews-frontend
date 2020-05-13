@@ -21,13 +21,13 @@ export default class Popup{
       <form class="popup__form" name="profile">
           <span class="popup__input-title">Email</span>
           <input type="email" name="email" class="popup__input popup__input_type_name" placeholder="Введите почту">
-          <span id="error-username" class="error-message"></span>
+          <span id="error-email" class="error-message"></span>
           <span class="popup__input-title">Пароль</span>
           <input type="text" name="password" class="popup__input popup__input_type_name" placeholder="Введите пароль">
-          <span id="error-userjob" class="error-message"></span>
+          <span id="error-password" class="error-message"></span>
           <span class="popup__input-title">Имя</span>
           <input type="text" name="username" class="popup__input popup__input_type_name" placeholder="Введите своё имя">
-          <span id="error-userjob" class="error-message"></span>
+          <span id="error-username" class="error-message"></span>
           <button type="submit" class="button button_type_popup">Зарегистрироваться</button>
           <span class="popup__input-title popup__input-title_type_centered">или <a class="link link_type_popup" href="">Войти</a></span>
       </form>
@@ -62,7 +62,7 @@ export default class Popup{
       this.form = this.popup.querySelector('.popup__form');
       this.element.addEventListener('click', this.open.bind(this));
       createValidator(this.form).setEventListeners();
-      this.setFormEventListeners();
+      // this.setFormEventListeners();
   }
 
 //   renderLoading(isLoading){
