@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>ExploreTheNews</title>
-  <link rel="stylesheet" href="./vendor/normalize.css">
-  <!-- <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.chunks.main.css %>"> -->
-  <link rel="stylesheet" href="style.css">
+  <!-- <link rel="stylesheet" href="./vendor/normalize.css"> -->
+
+  <link rel="shortcut icon" type="image/png" href="<%=require('./images/favicon.png').default%>"/>
+  <!-- <link rel="stylesheet" href="style.css"> -->
 </head>
 <body class="page">
   <div class="root"></div>
@@ -53,7 +54,7 @@
         <h3 class="search-results__subtitle">Результаты поиска</h3>
         <div class="search-results__news-grid">
           <div class="search-results__news-card">
-            <img class="search-results__news-photo" src="./images/cards/image_08.jpg">
+            <img class="search-results__news-photo" src="<%=require('./images/cards/image_08.jpg').default%>">
             <button class="search-results__mark-button">
               <svg class="search-results__icon search-results__icon_type_flag">
                 <path class="search-results__flag-pic">
@@ -68,7 +69,7 @@
             </div>
           </div>
           <div class="search-results__news-card">
-            <img class="search-results__news-photo" src="./images/cards/image_04.jpg">
+            <img class="search-results__news-photo" src="<%=require('./images/cards/image_04.jpg').default%>">
             <button class="search-results__mark-button">
               <svg class="search-results__icon search-results__icon_type_flag">
                 <path class="search-results__flag-pic">
@@ -83,7 +84,7 @@
             </div>
           </div>
           <div class="search-results__news-card">
-            <img class="search-results__news-photo" src="./images/cards/image_07.jpg">
+            <img class="search-results__news-photo" src="<%=require('./images/cards/image_07.jpg').default%>">
             <button class="search-results__mark-button">
               <svg class="search-results__icon search-results__icon_type_flag">
                 <path class="search-results__flag-pic">
@@ -103,7 +104,7 @@
 
       <section class="about-author">
         <div class="about-author__grid">
-          <img class="about-author__picture" src="./images/avatar/1.jpg">
+          <img class="about-author__picture" src="<%=require('./images/avatar/1.jpg').default%>">
           <div class="about-author__text-container">
             <h4 class="about-author__title">Об авторе</h4>
             <p class="about-author__text">Привет! Меня зовут Елена Силина, и я начинающий вэб-разработчик. Умею верстать в HTML и CSS, знаю (и люблю!) JavaScript. Уверенно использую Git, Node js, Webpack. Могу настроить сервер, понимаю как устроен бэк-энд. Мне нравится разрабатывать пользовательский интерфейс,  делать его простым и удобным.  В моей копилке несколько небольших full-stack проектов, с использованием Express, Mongoose и др.</p>
@@ -120,8 +121,8 @@
             <li><a class="link link_type_footer" href="https://praktikum.yandex.ru/">Яндекс.Практикум</a></li>
             </ul>
         <ul class="footer__social-icons">
-          <li><a href="https://github.com/silinosilino/explorethenews-frontend" class="link"><img src="./images/github.png" class="footer__icon"></a></li>
-          <li><a href="www.facebook.com" class="link"><img src="./images/iconmonstr-facebook-6.png" class="footer__icon footer__icon_last-item"></a></li>
+          <li><a href="https://github.com/silinosilino/explorethenews-frontend" class="link"><img src="<%=require('./images/github.png').default%>" class="footer__icon"></a></li>
+          <li><a href="www.facebook.com" class="link"><img src="<%=require('./images/iconmonstr-facebook-6.png').default%>" class="footer__icon footer__icon_last-item"></a></li>
         </ul>
       </nav>
     </footer>

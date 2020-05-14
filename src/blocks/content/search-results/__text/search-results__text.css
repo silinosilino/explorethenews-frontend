@@ -6,3 +6,50 @@
   line-height: 22px;
   color: #1A1B22;
 }
+
+
+@media screen and (max-width: 1200px) {
+  .search-results__text{
+    width: 300px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .search-results__text{
+    width: 300px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .search-results__text{
+    width: 300px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+  }
+}
+
+@media screen and (max-width: 425px) {
+
+
+}
+
+
+/* @media screen and (max-width: 540px) {
+.search-results__text{
+  width: 300px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+} */
