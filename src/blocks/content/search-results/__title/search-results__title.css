@@ -8,3 +8,22 @@
   margin-bottom: 16px;
   margin-top: 0;
 }
+
+@media screen and (max-width: 1200px) {
+  .search-results__title{
+  min-width: 170px;
+  }
+}
+@media screen and (max-width: 980px) {
+  .search-results__title{
+    font-size: 24px;
+
+  }
+}
+
+@media screen and (max-width: 940px) {
+  .search-results__title{
+    font-size: 22px;
+
+  }
+}

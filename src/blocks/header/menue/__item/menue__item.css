@@ -6,16 +6,16 @@
   line-height: 24px;
   height: 100%;
   display: flex;
-  /* justify-content: center; */
   align-items: center;
-  /* border-bottom: solid white 3px; */
+}
+
+@media screen and (max-width: 900px) {
+  .menue__item{
+    font-size: 16зpx;
+  }
 }
 
 
 
 
 
-
-/* .menue__item.active {
-  border-bottom: 3px solid white;
-} */

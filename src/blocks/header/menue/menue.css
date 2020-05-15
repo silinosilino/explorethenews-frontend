@@ -26,3 +26,9 @@
   padding: 0px;
   margin: 0px;
 }
+
+@media screen and (max-width: 900px) {
+  .menue{
+    column-gap: 16px;
+  }
+}

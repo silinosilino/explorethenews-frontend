@@ -17,11 +17,12 @@
 
 .search-results{
   width: 100%;
-  max-height: 974px;
+  min-height: 974px;
   display: flex;
   flex-flow: column;
   align-items: center;
+  justify-content: center;
   background-color: #F5F6F7;
-  padding: 80px 104px 80px 104px;
-  box-sizing: border-box;
+  /* padding: 80px 104px 80px 104px; */
+  /* box-sizing: border-box; */
 }

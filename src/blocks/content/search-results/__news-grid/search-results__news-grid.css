@@ -1,7 +1,22 @@
 .search-results__news-grid{
+  max-width: calc(100% - 208px);
   display: grid;
   margin-bottom: 56px;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 16px;
 
+}
+
+@media screen and (max-width: 980px) {
+  .search-results__news-grid{
+    column-gap: 8px;
+    max-width: calc(100% - 160px);
+
+  }
+}
+
+@media screen and (max-width: 840px) {
+  .search-results__news-grid{
+    max-width: calc(100% - 80px);
+  }
 }

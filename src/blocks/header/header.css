@@ -10,7 +10,7 @@
   flex-flow: row;
   align-items: center;
   justify-content: space-between;
-  border: white 1px fine;
+  border: white 1px solid;
   z-index: 1;
   padding-left: 104px;
   padding-right: 104px;
@@ -18,4 +18,12 @@
   border-bottom: 1px solid white;
   background: rgba(196, 196, 196, 0.01);
   box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
+}
+
+@media screen and (max-width: 900px) {
+  .header{
+    height: 66px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
 }

@@ -10,7 +10,6 @@
 
 @media screen and (max-width: 1200px) {
   .search-results__text{
-    width: 300px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 5;
@@ -20,7 +19,6 @@
 
 @media screen and (max-width: 1024px) {
   .search-results__text{
-    width: 300px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 5;
@@ -30,7 +28,6 @@
 
 @media screen and (max-width: 768px) {
   .search-results__text{
-    width: 300px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 4;

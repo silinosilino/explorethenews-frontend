@@ -17,3 +17,9 @@
   align-items: center;
 
 }
+
+@media screen and (max-width: 768px) {
+  .search{
+    height: 400px;
+  }
+}
