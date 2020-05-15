@@ -1,9 +1,16 @@
 .footer__navigation{
   list-style-type: none;
   display: flex;
-  width: 304px;
+  max-width: 304px;
   justify-content: space-between;
   box-sizing: border-box;
-  /* padding: 0; */
 
+}
+
+@media screen and (max-width: 600px) {
+  .footer__navigation{
+    flex-flow: column;
+    align-items: flex-start;
+
+  }
 }

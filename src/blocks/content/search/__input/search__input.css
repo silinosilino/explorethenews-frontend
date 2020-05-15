@@ -21,3 +21,10 @@
   .search__input:focus ~ .button_type_search{
     background-color: #347EFF;
   }
+
+  @media screen and (max-width: 600px) {
+    .search__input{
+      width: 100%;
+      margin-bottom: 16px;
+    }
+  }

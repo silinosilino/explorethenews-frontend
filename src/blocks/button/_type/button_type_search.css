@@ -17,3 +17,10 @@
 .button_type_search:active{
   background-color: #2A65CC;
 }
+
+@media screen and (max-width: 600px) {
+  .button_type_search{
+    position: static;
+    width: 100%;
+  }
+}

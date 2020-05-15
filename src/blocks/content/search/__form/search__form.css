@@ -10,3 +10,9 @@
     width: 448px;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .search__form{
+    width: calc(100% - 32px);
+  }
+}

@@ -6,6 +6,7 @@
 @import url("./__exit_pic/menue__exit-pic-path.css");
 @import url("./__exit_pic/_theme/menue__exit-pic-path_theme_dark.css");
 @import url("./__exit_pic/_theme/menue__exit-pic-path_theme_light.css");
+@import url("./__icon/menue__icon.css");
 
 
 .menue{
@@ -32,3 +33,16 @@
     column-gap: 16px;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .menue .menue__item{
+    display: none;
+
+  }
+
+  .menue__icon {
+    display: block;
+
+  }
+}
+

@@ -1,5 +1,5 @@
 .search-results__subtitle{
-  width: 712px;
+  max-width: 712px;
   height: 46px;
   font-family: Roboto Slab;
   font-style: normal;

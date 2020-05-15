@@ -3,8 +3,10 @@
   max-width: 464px;
   height: auto;
   border-radius: 1000px;
-  /* margin-right: 56px;
-  margin-left: 104px; */
-  /* object-fit: cover; */
-  /* object-fit: fill; */
+}
+
+@media screen and (max-width: 768px) {
+  .about-author{
+    align-self: center;
+  }
 }

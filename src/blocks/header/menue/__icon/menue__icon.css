@@ -1,0 +1,21 @@
+.menue__icon{
+  display: none;
+  width: 24px;
+  height: 24px;
+  fill: none;
+  margin-top: 16px;
+  width: 24px;
+  height: 24px;
+
+
+}
+
+.menue__icon_path{
+  fill: white;
+}
+
+.menue__icon:hover ~.menue{
+  display: flex;
+  flex-flow: column;
+}
+

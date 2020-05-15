@@ -20,3 +20,10 @@
     max-width: calc(100% - 80px);
   }
 }
+
+@media screen and (max-width: 600px) {
+  .search-results__news-grid{
+    grid-template-columns: 100%;
+    max-width: calc(100% - 32px);
+  }
+}

@@ -10,7 +10,7 @@
   flex-flow: row;
   align-items: center;
   justify-content: space-between;
-  border: white 1px solid;
+  border-bottom: white 1px solid;
   z-index: 1;
   padding-left: 104px;
   padding-right: 104px;
@@ -26,4 +26,13 @@
     padding-left: 40px;
     padding-right: 40px;
   }
+}
+
+@media screen and (max-width: 425px) {
+  .header{
+  height: 56px;
+  padding-left: 16px;
+  padding-right: 16px;
+  }
+
 }

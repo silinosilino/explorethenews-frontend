@@ -2,3 +2,10 @@
   display: flex;
 
 }
+
+@media screen and (max-width: 600px) {
+  .footer__links{
+    justify-content: space-between;
+
+  }
+}
