@@ -42,7 +42,7 @@
   .menue__icon {
     display: block;
   }
-  .menue__icon:hover ~.menue{
+  .menue__icon:active ~.menue{
     display: flex;
     flex-flow: column;
     width: 100%;
@@ -68,12 +68,5 @@
   .menue__item{
     width: 100%;
   }
-  /* .header__close{
-    display: block;
-    position: fixed;
-    right: 16px;
-    top: 16px;
-
-  } */
 }
 

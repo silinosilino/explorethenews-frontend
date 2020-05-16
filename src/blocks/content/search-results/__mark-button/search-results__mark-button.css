@@ -30,3 +30,7 @@
   stroke: blue;
   transition: 0.01s ease;
 }
+
+.search-results__mark-button:focus{
+  border: none;
+}
