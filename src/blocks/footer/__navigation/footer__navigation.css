@@ -4,6 +4,7 @@
   max-width: 304px;
   justify-content: space-between;
   box-sizing: border-box;
+  padding-left: 0;
 
 }
 
@@ -11,6 +12,8 @@
   .footer__navigation{
     flex-flow: column;
     align-items: flex-start;
+    min-height: 74px;
+    margin-bottom: 34px;
 
   }
 }

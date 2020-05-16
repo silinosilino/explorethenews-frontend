@@ -7,7 +7,7 @@
 
 .search{
   width: 100%;
-  height: 576px;
+  min-height: 576px;
   background-size: cover;
   background-position: center;
   background-image: url("../../../images/search-background-image.jpg");
@@ -19,7 +19,7 @@
 
 @media screen and (max-width: 768px) {
   .search{
-    height: 400px;
+    min-height: 400px;
   }
 }
 

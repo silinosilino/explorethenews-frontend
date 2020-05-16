@@ -2,21 +2,3 @@
   max-width: 608px;
   position: relative;
 }
-
-/* @media screen and (max-width: 768px) {
-  .search__form{
-    max-width: 448px;
-  }
-} */
-
-/* @media screen and (max-width: 600px) {
-  .search__form{
-    width: calc(100% - 160px);
-  }
-}
-
-@media screen and (max-width: 425px) {
-  .search__form{
-    width: calc(100% - 32px);
-  }
-} */

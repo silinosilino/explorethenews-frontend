@@ -9,5 +9,34 @@
   color: #1A1B22;
   margin-bottom: 64px;
   align-self: flex-start;
-  margin-left: 40px;
+  margin-left: 104px;
+}
+
+@media screen and (max-width: 980px) {
+  .search-results__subtitle{
+    margin-left: 80px;
+  }
+}
+
+@media screen and (max-width: 840px) {
+  .search-results__subtitle{
+    margin-left: 40px;
+    font-size: 30px;
+    line-height: 34px;
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .search-results__subtitle{
+    margin-left: 24px;
+    font-size: 30px;
+    line-height: 34px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .search-results__subtitle{
+  margin-left: 16px;
+  }
 }

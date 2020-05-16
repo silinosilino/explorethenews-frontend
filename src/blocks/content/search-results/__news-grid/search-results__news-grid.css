@@ -25,5 +25,12 @@
   .search-results__news-grid{
     grid-template-columns: 1fr;
     max-width: calc(100% - 32px);
+    grid-gap: 16px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .search-results__news-grid{
+    grid-gap: 9px;
   }
 }

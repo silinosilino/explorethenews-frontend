@@ -17,7 +17,7 @@
 
 .search-results{
   width: 100%;
-  min-height: 974px;
+  /* min-height: 974px; */
   display: flex;
   flex-flow: column;
   align-items: center;

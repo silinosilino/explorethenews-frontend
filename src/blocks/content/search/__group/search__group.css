@@ -1,16 +1,19 @@
 .search__group{
   flex-flow: column;
   align-items: flex-start;
+  margin-top: 160px;
 }
 
 @media screen and (max-width: 768px) {
   .search__group{
     width: calc(100% - 312px);
+    margin-top: 104px;
   }
 }
 @media screen and (max-width: 600px) {
   .search__group{
     width: calc(100% - 160px);
+    margin-top: 116px;
   }
 }
 
