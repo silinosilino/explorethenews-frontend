@@ -14,8 +14,8 @@
   fill: white;
 }
 
-.menue__icon:hover ~.menue{
-  display: flex;
-  flex-flow: column;
+.menue__icon:hover .menue{
+  display: block;
 }
+
 

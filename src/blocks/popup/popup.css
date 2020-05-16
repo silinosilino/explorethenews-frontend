@@ -19,3 +19,10 @@
   display: none;
   z-index: 5;
 }
+
+@media screen and (max-width: 600px) {
+  .popup__content {
+    position: absolute;
+    top: 54px;
+  }
+}

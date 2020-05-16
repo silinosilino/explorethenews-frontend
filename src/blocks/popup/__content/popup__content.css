@@ -1,6 +1,5 @@
 .popup__content {
   width: 430px;
-  /* min-height: 458px; */
   background-color: #fff;
   border-radius: 16px;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
@@ -11,13 +10,15 @@
   flex-flow: column;
 }
 
-
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 600px) {
   .popup__content {
-    width: calc(100% - 60px);
+    max-width: 430px;
   }
-  .popup__content_picture {
-    width: calc(100% - 60px);
+}
+
+@media screen and (max-width: 425px) {
+  .popup__content {
+    width: 100%;
   }
 }
 

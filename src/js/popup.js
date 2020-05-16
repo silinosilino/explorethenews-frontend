@@ -57,12 +57,10 @@ export default class Popup{
   }
 
   configureInputPopup(createValidator){
-    // configureInputPopup(){
-
-      this.form = this.popup.querySelector('.popup__form');
-      this.element.addEventListener('click', this.open.bind(this));
-      createValidator(this.form).setEventListeners();
-      // this.setFormEventListeners();
+    this.form = this.popup.querySelector('.popup__form');
+    this.element.addEventListener('click', this.open.bind(this));
+    createValidator(this.form).setEventListeners();
+    // this.setFormEventListeners();
   }
 
 //   renderLoading(isLoading){

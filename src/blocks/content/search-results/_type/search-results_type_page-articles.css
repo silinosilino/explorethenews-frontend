@@ -11,3 +11,9 @@
   row-gap: 16px;
   margin-bottom: 0;
 }
+
+@media screen and (max-width: 600px) {
+  .search-results_type_page-articles{
+    max-height: 3000px;
+  }
+}

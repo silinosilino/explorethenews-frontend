@@ -27,3 +27,11 @@
 
   }
 }
+
+@media screen and (max-width: 710px) {
+  .search-results__title{
+    font-size: 18px;
+    line-height: 22px;
+
+  }
+}

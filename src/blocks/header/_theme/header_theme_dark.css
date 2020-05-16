@@ -18,3 +18,22 @@ margin: 0px;
 .header_theme_dark .menue__item_type_current{
   border-bottom: 3px solid #1A1B22;
 }
+
+.header_theme_dark .menue__icon_path{
+  fill: black;
+}
+
+@media screen and (max-width: 600px) {
+
+  .header_theme_dark .menue__icon:hover ~.menue{
+  background-color: white;
+
+}
+.header_theme_dark .menue__item_type_current{
+  border-bottom: none;
+}
+
+.header_theme_dark .header__close_path{
+  fill: black;
+}
+}

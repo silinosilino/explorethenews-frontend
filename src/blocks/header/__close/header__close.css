@@ -1,0 +1,19 @@
+.header__close{
+  width: 24px;
+  height: 24px;
+  fill: none;
+  display: none;
+}
+.header__close_path{
+  fill: white;
+
+}
+
+@media screen and (max-width: 600px) {
+  .header__close{
+    display: block;
+    position: fixed;
+    right: 16px;
+    top: 16px;
+  }
+}
