@@ -1,22 +1,21 @@
-export default class Popup{
-  constructor(element){
-      this.element = element;
-      this.popup = document.createElement('div');
-      this.popup.classList.add('popup');
-      const root = document.querySelector('.root');
-      root.appendChild(this.popup);
-      this.popupCloser = document.createElement('img');
-      this.popupCloser.src = require('../images/back.png').default;
-      this.popupCloser.classList.add('popup__close');
-      this.popupContent = document.createElement('div');
-      this.popupContent.classList.add('popup__content')
-      this.popup.appendChild(this.popupContent);
-      this.popupContent.appendChild(this.popupCloser);
-
+export default class Popup {
+  constructor(element) {
+    this.element = element;
+    this.popup = document.createElement('div');
+    this.popup.classList.add('popup');
+    const root = document.querySelector('.root');
+    root.appendChild(this.popup);
+    this.popupCloser = document.createElement('img');
+    this.popupCloser.src = require('../images/back.png').default;
+    this.popupCloser.classList.add('popup__close');
+    this.popupContent = document.createElement('div');
+    this.popupContent.classList.add('popup__content');
+    this.popup.appendChild(this.popupContent);
+    this.popupContent.appendChild(this.popupCloser);
   }
 
-  setContent(){
-     this.popupContent.insertAdjacentHTML('afterbegin', `
+  setContent() {
+    this.popupContent.insertAdjacentHTML('afterbegin', `
       <h3 class="popup__title">Регистрация</h3>
       <form class="popup__form" name="profile">
           <span class="popup__input-title">Email</span>
@@ -34,41 +33,32 @@ export default class Popup{
   `);
   }
 
-  setEventListeners(){
-      this.popupCloser.addEventListener('click', this.close.bind(this));
-      this.popup.addEventListener('click', function() {
-          if (!event.target.closest('.popup__content')) {
-              this.close();
-              }
-          }.bind(this));
-      document.addEventListener('keydown', function() {
-          if (event.key === 'Escape') {
-              this.close();
-              }
-          }.bind(this));
+  setEventListeners() {
+    this.popupCloser.addEventListener('click', this.close.bind(this));
+    this.popup.addEventListener('click', (event) => {
+      if (!event.target.closest('.popup__content')) {
+        this.close();
+      }
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        this.close();
+      }
+    });
   }
 
-  open(event){
-      this.popup.classList.add('popup_is-opened');
+  open() {
+    this.popup.classList.add('popup_is-opened');
   }
 
-  close(event){
-      this.popup.classList.remove('popup_is-opened');
+  close() {
+    this.popup.classList.remove('popup_is-opened');
   }
 
-  configureInputPopup(createValidator){
+  configureInputPopup(createValidator) {
     this.form = this.popup.querySelector('.popup__form');
     this.element.addEventListener('click', this.open.bind(this));
     createValidator(this.form).setEventListeners();
     // this.setFormEventListeners();
   }
-
-//   renderLoading(isLoading){
-//       const popupButton = this.popup.querySelector(".popup__button");
-//       if (isLoading){
-//         popupButton.textContent = "Загрузка...";
-//       } else {
-//           popupButton.textContent = "Сохранить";
-//       }
-//   }
- }
+}

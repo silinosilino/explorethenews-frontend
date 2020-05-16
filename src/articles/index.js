@@ -1,2 +1,2 @@
-import "../vendor/normalize.css";
-import "../style.css";
+import '../vendor/normalize.css';
+import '../style.css';
