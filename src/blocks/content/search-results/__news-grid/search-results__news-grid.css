@@ -23,7 +23,7 @@
 
 @media screen and (max-width: 600px) {
   .search-results__news-grid{
-    grid-template-columns: 100%;
+    grid-template-columns: 1fr;
     max-width: calc(100% - 32px);
   }
 }

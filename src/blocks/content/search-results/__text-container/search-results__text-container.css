@@ -14,9 +14,14 @@
   }
 }
 
-/* @media screen and (max-width: 600px) {
+@media screen and (max-width: 710px) {
   .search-results__text-container{
-    grid-template-columns: 100%;
-    max-width: calc(100% - 32px);
+    min-height: 250px;
   }
-} */
+}
+
+@media screen and (max-width: 600px) {
+  .search-results__text-container{
+    min-height: 180px;
+  }
+}

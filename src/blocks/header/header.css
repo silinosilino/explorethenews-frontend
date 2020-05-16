@@ -2,6 +2,7 @@
 @import url("./menue/menue.css");
 @import url("./__navigation/header__navigation.css");
 @import url("./__close/header__close.css");
+@import url("./__line/header__line.css");
 
 .header{
   width: 100%;
@@ -27,6 +28,15 @@
     padding-left: 40px;
     padding-right: 40px;
   }
+}
+
+@media screen and (max-width: 600px) {
+  .header{
+  height: 56px;
+  padding-left: 24px;
+  padding-right: 24px;
+  }
+
 }
 
 @media screen and (max-width: 425px) {

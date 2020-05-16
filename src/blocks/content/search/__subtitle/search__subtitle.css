@@ -5,14 +5,14 @@
   color: white;
   font-size: 18px;
   line-height: 24px;
-  width: 545px;
+  max-width: 545px;
   height: 48px;
   margin-bottom: 64px;
   }
 
   @media screen and (max-width: 768px) {
     .search__subtitle{
-      width: 452px;
+      max-width: 452px;
       height: 48px;
       margin-bottom: 48px;
     }
@@ -20,7 +20,7 @@
 
   @media screen and (max-width: 600px) {
     .search__subtitle{
-    width: 100%;
+    /* width: 100%; */
     margin-bottom: 122px;
     }
   }

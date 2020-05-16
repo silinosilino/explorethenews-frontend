@@ -3,7 +3,18 @@
   align-items: flex-start;
 }
 
+@media screen and (max-width: 768px) {
+  .search__group{
+    width: calc(100% - 312px);
+  }
+}
 @media screen and (max-width: 600px) {
+  .search__group{
+    width: calc(100% - 160px);
+  }
+}
+
+@media screen and (max-width: 425px) {
   .search__group{
     width: calc(100% - 32px);
   }

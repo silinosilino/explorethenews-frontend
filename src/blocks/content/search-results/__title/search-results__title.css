@@ -32,6 +32,14 @@
   .search-results__title{
     font-size: 18px;
     line-height: 22px;
+    min-width: 150px;
+  }
+}
 
+@media screen and (max-width: 650px) {
+  .search-results__title{
+    font-size: 16px;
+    line-height: 20px;
+    min-width: 140px;
   }
 }
