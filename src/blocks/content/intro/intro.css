@@ -12,7 +12,25 @@
   align-items: flex-start;
 }
 
+@media screen and (max-width: 980px) {
+  .intro{
+    padding: 40px 80px 56px 80px;
+  }
+}
+
+@media screen and (max-width: 840px) {
+  .intro{
+    padding: 40px 40px 56px 40px;
+  }
+}
+
 @media screen and (max-width: 600px) {
+  .intro{
+    padding: 40px 24px 56px 24px;
+  }
+}
+
+@media screen and (max-width: 425px) {
   .intro{
     padding: 40px 16px 56px 16px;
   }
