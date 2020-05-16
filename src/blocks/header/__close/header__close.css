@@ -3,17 +3,10 @@
   height: 24px;
   fill: none;
   display: none;
+  position: fixed;
+  right: 16px;
+  top: 16px;
 }
 .header__close_path{
   fill: white;
-
-}
-
-@media screen and (max-width: 600px) {
-  .header__close{
-    display: block;
-    position: fixed;
-    right: 16px;
-    top: 16px;
-  }
 }

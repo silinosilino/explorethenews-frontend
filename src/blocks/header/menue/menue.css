@@ -39,10 +39,10 @@
       display: none;
     }
 
-  .menue__icon {
+  /* .menue__icon {
     display: block;
-  }
-  .menue__icon:hover ~.menue{
+  } */
+  /* .menue__icon:hover ~.menue{
     display: flex;
     flex-flow: column;
     width: 100%;
@@ -55,9 +55,17 @@
     padding: 72px 16px 24px 16px;
     box-sizing: border-box;
   }
-  .menue .header__line{
+
+  .menue__icon:hover ~.header__line{
     display: block;
+    z-index: 3;
   }
+
+  .menue__icon:hover ~.header__close{
+    display: block;
+    z-index: 3;
+  } */
+
   .menue__item_type_current{
     border-bottom: none;
   }

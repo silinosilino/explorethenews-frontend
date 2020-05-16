@@ -49,16 +49,23 @@ export default class Popup {
 
   open() {
     this.popup.classList.add('popup_is-opened');
+    if (window.screen.width < 601) {
+      const menueIcon = document.querySelector('.menue__icon');
+      menueIcon.classList.add('menue__icon_disabled');
+    }
   }
 
   close() {
     this.popup.classList.remove('popup_is-opened');
+    if (window.screen.width < 601) {
+      const menueIcon = document.querySelector('.menue__icon');
+      menueIcon.classList.remove('menue__icon_disabled');
+    }
   }
 
   configureInputPopup(createValidator) {
     this.form = this.popup.querySelector('.popup__form');
     this.element.addEventListener('click', this.open.bind(this));
     createValidator(this.form).setEventListeners();
-    // this.setFormEventListeners();
   }
 }
