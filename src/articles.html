@@ -8,6 +8,7 @@
   <meta name="description" content="News search service that allows user to save and keep a personal board of selected news">
   <meta name="author" content="Elena Silina">
   <link rel="shortcut icon" type="image/png" href="<%=require('./images/favicon.png').default%>"/>
+  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">
 </head>
 <body class="page">
 
@@ -18,15 +19,15 @@
         <rect class="menue__icon_path" x="4" y="8" width="16" height="2"/>
         <rect class="menue__icon_path" x="4" y="14" width="16" height="2"/>
       </svg>
-      <ul class="menue">
-        <div class="header__line"></div>
+      <div class="header__line"></div>
         <svg class="header__close">
           <path class="header__close_path" d="M13.4142 12L18.7071 17.2928L17.2929 18.7071L11.2929 12.7071C10.9024 12.3165 10.9024 11.6834 11.2929 11.2928L17.2929 5.29285L18.7071 6.70706L13.4142 12Z"/>
           <path class="header__close_path" d="M10.8787 12L5.58577 17.2928L6.99999 18.7071L13 12.7071C13.3905 12.3165 13.3905 11.6834 13 11.2928L6.99999 5.29285L5.58577 6.70706L10.8787 12Z"/>
         </svg>
+      <ul class="menue">
         <li class="menue__item"><a class="link link_type_header" href="./index.html">Главная</a></li>
         <li class="menue__item menue__item_type_current"><a class="link link_type_header" href="./articles.html">Сохраненные статьи</a></li>
-        <li class="menue__item "><a class="link link_type_header menue__item_type_feachered" href="">Грета<svg class="menue__exit-pic"><path class="menue__exit-pic-path menue__exit-pic-path_theme_dark"></svg></a></li>
+        <li class="menue__item "><a class="link link_type_header menue__item_type_feachered" href="">Грета<svg class="menue__exit-pic"><path class="menue__exit-pic-path menue__exit-pic-path_theme_dark"></path></svg></a></li>
       </ul>
     </nav>
   </header>
@@ -47,7 +48,7 @@
           <span class="tooltip tooltip_type_keyword">Природа</span>
           <button class="search-results__mark-button">
             <svg class="search-results__icon search-results__icon_type_trash">
-              <path class="search-results__trash-pic">
+              <path class="search-results__trash-pic"></path>
               </svg>
             <span class="tooltip tooltip_type_help">Убрать из сохраненных</span>
           </button>
@@ -64,7 +65,7 @@
           <span class="tooltip tooltip_type_keyword">Природа</span>
           <button class="search-results__mark-button">
             <svg class="search-results__icon search-results__icon_type_trash">
-              <path class="search-results__trash-pic">
+              <path class="search-results__trash-pic"></path>
               </svg>
             <span class="tooltip tooltip_type_help">Убрать из сохраненных</span>
           </button>
@@ -81,7 +82,7 @@
           <span class="tooltip tooltip_type_keyword">Тайга</span>
           <button class="search-results__mark-button">
             <svg class="search-results__icon search-results__icon_type_trash">
-              <path class="search-results__trash-pic">
+              <path class="search-results__trash-pic"></path>
               </svg>
             <span class="tooltip tooltip_type_help">Убрать из сохраненных</span>
           </button>
@@ -98,7 +99,7 @@
           <span class="tooltip tooltip_type_keyword">Парки</span>
           <button class="search-results__mark-button">
             <svg class="search-results__icon search-results__icon_type_trash">
-              <path class="search-results__trash-pic">
+              <path class="search-results__trash-pic"></path>
               </svg>
             <span class="tooltip tooltip_type_help">Убрать из сохраненных</span>
           </button>
@@ -115,7 +116,7 @@
           <span class="tooltip tooltip_type_keyword">Фотография</span>
           <button class="search-results__mark-button">
             <svg class="search-results__icon search-results__icon_type_trash">
-              <path class="search-results__trash-pic">
+              <path class="search-results__trash-pic"></path>
               </svg>
             <span class="tooltip tooltip_type_help">Убрать из сохраненных</span>
           </button>
