@@ -4,11 +4,8 @@ export default class Form {
     this.button = this.form.querySelector('.button_type_popup');
   }
 
-  validateInputElement(element) {
-    console.log(element);
+  static validateInputElement(element) {
     const errorElement = document.querySelector(`#error-${element.name}`);
-    console.log('validateInputElement', element, errorElement);
-
     let isValid = false;
     if (element.name === 'email') {
       isValid = element.value.match(/^\w+(\.\w+)*@(\w+\.)+[a-zA-Z]{2,6}/);
@@ -19,18 +16,16 @@ export default class Form {
       }
     } else if (element.value.length < 1) {
       errorElement.textContent = 'Это обязательное поле';
-      console.log(errorElement);
     } else if (element.value.length === 1 || element.value.length > 30) {
       errorElement.textContent = 'Должно быть от 2 до 30 символов';
     } else if (element.value.length > 1 && element.value.length < 30) {
       errorElement.textContent = '';
       isValid = true;
     }
-    console.log(isValid);
     return isValid;
   }
 
-  validateForm(event) {
+  validateForm() {
     let isValid = true;
     const a = this;
     Array.from(this.form.elements).forEach((elem) => {
@@ -49,7 +44,7 @@ export default class Form {
 
   setEventListeners() {
     const a = this;
-    this.form.addEventListener('input', (event) => {
+    this.form.addEventListener('input', () => {
       a.validateForm();
     });
   }
