@@ -6,3 +6,15 @@
 .footer__icon_last-item{
   margin-left: 28px;
 }
+
+@media screen and (max-width: 768px) {
+  .footer__icon_last-item{
+    content: url('../../../images/facebook-circular.png');
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .footer__icon_last-item{
+    content: url('../../../images/iconmonstr-facebook-6.png');
+  }
+}
