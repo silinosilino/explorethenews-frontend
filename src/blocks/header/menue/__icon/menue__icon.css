@@ -8,8 +8,6 @@
   height: 24px;
 }
 
-
-
 .menue__icon_path{
   fill: white;
 }
@@ -17,11 +15,6 @@
 .menue__icon:hover .menue{
   display: block;
 }
-
-
-/* .menue__icon_switch{
-  display: none;
-} */
 
 @media screen and (max-width: 600px) {
   .menue__icon {
