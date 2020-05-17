@@ -39,33 +39,6 @@
       display: none;
     }
 
-  /* .menue__icon {
-    display: block;
-  } */
-  /* .menue__icon:hover ~.menue{
-    display: flex;
-    flex-flow: column;
-    width: 100%;
-    background-color: black;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    height: 286px;
-    align-items: flex-start;
-    padding: 72px 16px 24px 16px;
-    box-sizing: border-box;
-  }
-
-  .menue__icon:hover ~.header__line{
-    display: block;
-    z-index: 3;
-  }
-
-  .menue__icon:hover ~.header__close{
-    display: block;
-    z-index: 3;
-  } */
-
   .menue__item_type_current{
     border-bottom: none;
   }

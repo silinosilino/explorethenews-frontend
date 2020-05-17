@@ -1,6 +1,5 @@
 .search__title{
   color: white;
-  /* margin-top: 160px; */
   font-family: Roboto Slab;
   font-style: normal;
   font-weight: normal;
@@ -13,7 +12,6 @@
 
 @media screen and (max-width: 768px) {
   .search__title{
-    /* margin-top: 104px; */
     font-size: 36px;
     line-height: 40px;
     max-width: 385px;
@@ -25,6 +23,5 @@
 @media screen and (max-width: 600px) {
   .search__title{
     width: calc(100% - 32px);
-    /* margin-top: 86px; */
   }
 }
