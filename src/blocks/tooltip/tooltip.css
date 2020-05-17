@@ -1,5 +1,5 @@
 .tooltip {
-  max-height: 40px;
+  height: 40px;
   color: black;
   position: absolute;
   z-index: 1;

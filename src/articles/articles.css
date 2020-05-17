@@ -1,0 +1,54 @@
+@import url("../vendor/normalize.css");
+@import url("../blocks/page/page.css");
+@import url("../blocks/header/header.css");
+@import url("../blocks/header/_theme/header_theme_dark.css");
+@import url("../blocks/content/content.css");
+@import url("../blocks/footer/footer.css");
+@import url("../blocks/link/link.css");
+@import url("../blocks/link/_type/link_type_footer.css");
+@import url("../blocks/link/_type/link_type_header.css");
+@import url("../blocks/link/_type/link_type_popup.css");
+@import url("../blocks/button/button.css");
+@import url("../blocks/button/_type/button_type_search.css");
+@import url("../blocks/button/_type/button_type_showmore.css");
+@import url("../blocks/button/_type/button_type_popup.css");
+@import url("../blocks/tooltip/tooltip.css");
+@import url("../blocks/tooltip/_type/tooltip_type_keyword.css");
+@import url("../blocks/tooltip/_type/tooltip_type_help.css");
+@import url("../blocks/popup/popup.css");
+
+@font-face {
+  src: url("../vendor/fonts/inter-regular.woff") format("woff");
+  font-family: 'Inter';
+  font-weight: normal;
+}
+
+@font-face {
+  src: url('../vendor/fonts/roboto-black.woff') format("woff");
+  font-family: 'Roboto';
+  font-style: bold;
+}
+
+@font-face {
+  src: url('../vendor/fonts/roboto-medium.woff') format("woff");
+  font-family: 'Roboto';
+  font-style: medium;
+}
+
+@font-face {
+  src: url('../vendor/fonts/roboto-regular.woff') format("woff");
+  font-family: 'Roboto';
+  font-style: normal;
+}
+
+@font-face {
+  src: url('../vendor/fonts/robotoslab-regular.woff') format("woff");
+  font-family: 'Roboto Slab';
+  font-style: normal;
+}
+
+@font-face {
+  src: url('../vendor/fonts/sourcesanspro-regular.woff') format("woff");
+  font-family: 'Sourcesanspro';
+  font-style: normal;
+}

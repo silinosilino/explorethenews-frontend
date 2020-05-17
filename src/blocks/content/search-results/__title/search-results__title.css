@@ -43,3 +43,11 @@
     min-width: 140px;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .search-results__title{
+    font-size: 22px;
+    line-height: 26px;
+    min-width: 140px;
+  }
+}
