@@ -1,14 +1,3 @@
-@import url("./search/search.css");
-@import url("./search-results/search-results.css");
-@import url("./search-results/_type/search-results_type_page-articles.css");
-@import url("./about-author/about-author.css");
-@import url("./preloader/preloader.css");
-@import url("./nothing-found/nothing-found.css");
-@import url("./intro/intro.css");
-
-
-
-
 .content{
   width: 100%;
 }
