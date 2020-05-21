@@ -27,9 +27,8 @@ export default class Form {
 
   validateForm() {
     let isValid = true;
-    const a = this;
     Array.from(this.form.elements).forEach((elem) => {
-      if ((elem.type === 'text' || elem.type === 'email') && !a.validateInputElement(elem)) {
+      if ((elem.type === 'text' || elem.type === 'email') && !Form.validateInputElement(elem)) {
         isValid = false;
       }
     });
@@ -43,9 +42,6 @@ export default class Form {
   }
 
   setEventListeners() {
-    const a = this;
-    this.form.addEventListener('input', () => {
-      a.validateForm();
-    });
+    this.form.addEventListener('input', this.validateForm.bind(this));
   }
 }
