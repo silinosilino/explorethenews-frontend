@@ -9,12 +9,19 @@ export default class MainApi {
     return fetch(`${this.baseUrl}/signup`, {
       method: 'POST',
       headers: this.headers,
+      // mode: 'no-cors',
       body: JSON.stringify({
         name,
         email,
         password,
       }),
-    });
+    })
+      .then((res) => {
+        if (!res.ok) {
+          return Promise.reject(new Error(`Ошибка: ${res.status}`));
+        }
+        return res.json();
+      });
   }
 
   signin(email, password) {

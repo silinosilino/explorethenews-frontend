@@ -7,8 +7,9 @@ import MainApi from './js/mainApi';
 import './vendor/normalize.css';
 import './style.css';
 
-const mainApi = new MainApi('http:api.explorethenews.tk',
+const mainApi = new MainApi('http://localhost:3000',
   {
+    Authorization: 'No Auth',
     'Content-Type': 'application/json',
   });
 
@@ -17,8 +18,15 @@ const mainApi = new MainApi('http:api.explorethenews.tk',
 const header = new Header(false);
 const createValidator = (...args) => new Form(...args);
 
-const signupButton = document.querySelector('.logo');
+const signupButton = document.querySelector('.signup');
 const popupSignup = new Popup(signupButton, mainApi, header);
 popupSignup.setContent();
 popupSignup.configureInputPopup(createValidator);
+// console.log(popupSignup.form);
 popupSignup.setEventListeners();
+popupSignup.setFormEventListeners();
+// const signinButton = document.querySelector('.signin');
+const popupSignin = new Popup(signupButton, mainApi, header);
+popupSignin.setContent();
+popupSignup.configureInputPopup(createValidator);
+popupSignin.setEventListeners();

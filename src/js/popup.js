@@ -14,19 +14,43 @@ export default class Popup {
     this.popupContent.appendChild(this.popupCloser);
     this.mainApi = mainAapi;
     this.header = header;
+    // this.signupButton = document.querySelector('.menue__item_type_feachered');
+  }
+
+  clearContent() {
+    this.popupContent.innerHTML = '';
   }
 
   setContentSuccess() {
     this.popupContent.insertAdjacentHTML('afterbegin', `
-        <h3 class="popup__title">Gользователь успешно зарегистрирован</h3>
+        <h3 class="popup__title">Пользователь успешно зарегистрирован</h3>
         <form class="popup__form" name="signup">
             <span class="popup__input-title"><a class="link link_type_popup" href="">Выполнить вход</a></span>
         </form>
      `);
   }
 
+  // setContentSignin() {
+  //   if (this.element.classList.contains('logo')) {
+  //     this.popupContent.insertAdjacentHTML('afterbegin', `
+  //       <h3 class="popup__title">Вход</h3>
+  //       <form class="popup__form" name="signin">
+  //           <span class="popup__input-title">Email</span>
+  //           <input type="email" name="email" class="popup__input popup__input_type_name" placeholder="Введите почту">
+  //           <span id="error-email" class="error-message"></span>
+  //           <span class="popup__input-title">Пароль</span>
+  //           <input type="text" name="password" class="popup__input popup__input_type_name" placeholder="Введите пароль">
+  //           <span id="error-password" class="error-message"></span>
+  //           <button type="submit" class="button button_type_popup">Войти</button>
+  //           <span class="popup__input-title popup__input-title_type_centered">или <a class="link link_type_popup" href="">Зарегистрироваться</a></span>
+  //       </form>
+  //   `);
+  //     this.form = this.popup.querySelector('.popup__form');
+  //   }
+  // }
+
   setContent() {
-    if (this.element.classList.contains('logo')) {
+    if (this.element.classList.contains('signup')) {
       this.popupContent.insertAdjacentHTML('afterbegin', `
         <h3 class="popup__title">Регистрация</h3>
         <form class="popup__form" name="signup">
@@ -43,6 +67,22 @@ export default class Popup {
             <span class="popup__input-title popup__input-title_type_centered">или <a class="link link_type_popup" href="">Войти</a></span>
         </form>
     `);
+    }
+    if (this.element.classList.contains('signin')) {
+      this.popupContent.insertAdjacentHTML('afterbegin', `
+        <h3 class="popup__title">Вход</h3>
+        <form class="popup__form" name="signin">
+            <span class="popup__input-title">Email</span>
+            <input type="email" name="email" class="popup__input popup__input_type_name" placeholder="Введите почту">
+            <span id="error-email" class="error-message"></span>
+            <span class="popup__input-title">Пароль</span>
+            <input type="text" name="password" class="popup__input popup__input_type_name" placeholder="Введите пароль">
+            <span id="error-password" class="error-message"></span>
+            <button type="submit" class="button button_type_popup">Войти</button>
+            <span class="popup__input-title popup__input-title_type_centered">или <a class="link link_type_popup" href="">Зарегистрироваться</a></span>
+        </form>
+    `);
+      this.form = this.popup.querySelector('.popup__form');
     }
   }
 
@@ -84,39 +124,48 @@ export default class Popup {
   }
 
   setFormEventListeners() {
+    this.form = this.popup.querySelector('.popup__form');
     this.form.addEventListener('submit', this.updateHandler.bind(this));
   }
 
   updateHandler(event) {
     event.preventDefault();
     if (event.currentTarget.name === 'signup') {
-      const formSignUp = event.currentTarget;
+      const formSignup = event.currentTarget;
       const signupPromise = this.mainApi.signup(
-        formSignUp.elements.username.value,
-        formSignUp.elements.email.value,
-        formSignUp.elements.password.value,
+        formSignup.elements.username.value,
+        formSignup.elements.email.value,
+        formSignup.elements.password.value,
       );
-      signupPromise.then((res) => {
-        if (!res.ok) {
-          return Promise.reject(new Error(`Ошибка: ${res.status}`));
-        }
-        return res.json();
-      })
+      signupPromise
+      // .then((res) => {
+      //   console.log('promise');
+      //   console.log('popup res:', res);
+      //   if (res) {
+      //     console.log(res);
+      //     return Promise.reject(new Error(`Ошибка тата: ${res.status}`));
+      //   }
+      //   return res.json();
+      // })
         .then(() => {
+          this.clearContent();
           this.setContentSuccess();
+          this.element.classList.add('signin');
+          this.element.classList.remove('signup');
+          this.element.textContent = 'Войти';
 
           // this.userInfoData.setUserInfo(res.name, res.email, res.password);
           // this.close();
         })
 
         .catch((err) => {
-          throw new Error(`Ошибка: ${err}`);
+          throw new Error(`Ошибка hhh: ${err}`);
         });
     } else {
-      const formSignIn = event.currentTarget;
+      const formSignin = event.currentTarget;
       const signinPromise = this.mainApi.signin(
-        formSignIn.elements.email.value,
-        formSignIn.elements.password.value,
+        formSignin.elements.email.value,
+        formSignin.elements.password.value,
       );
       signinPromise.then((res) => {
         if (!res.ok) {
