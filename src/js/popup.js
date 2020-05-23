@@ -22,6 +22,7 @@ export default class Popup {
   }
 
   setContentSuccess() {
+    this.clearContent();
     this.popupContent.insertAdjacentHTML('afterbegin', `
         <h3 class="popup__title">Пользователь успешно зарегистрирован</h3>
         <form class="popup__form" name="signup">
@@ -51,6 +52,7 @@ export default class Popup {
 
   setContent() {
     if (this.element.classList.contains('signup')) {
+      this.clearContent();
       this.popupContent.insertAdjacentHTML('afterbegin', `
         <h3 class="popup__title">Регистрация</h3>
         <form class="popup__form" name="signup">
@@ -69,6 +71,7 @@ export default class Popup {
     `);
     }
     if (this.element.classList.contains('signin')) {
+      this.clearContent();
       this.popupContent.insertAdjacentHTML('afterbegin', `
         <h3 class="popup__title">Вход</h3>
         <form class="popup__form" name="signin">
@@ -118,9 +121,19 @@ export default class Popup {
   }
 
   configureInputPopup(createValidator) {
-    this.form = this.popup.querySelector('.popup__form');
-    this.element.addEventListener('click', this.open.bind(this));
-    createValidator(this.form).setEventListeners();
+    this.element.addEventListener('click', () => {
+      console.log('click on this.element: ', this.element);
+      this.open();
+      this.setContent();
+      this.form = this.popup.querySelector('.popup__form');
+      createValidator(this.form).setEventListeners();
+      this.setFormEventListeners();
+    });
+    // console.log('createValidator for this.form: ', this.form);
+    // const createValidatorOutput = createValidator(this.form);
+    // console.log('createValidator returned: ', createValidatorOutput);
+    // console.log('setEventListeners: ', createValidatorOutput.setEventListeners);
+    // createValidatorOutput.setEventListeners();
   }
 
   setFormEventListeners() {
@@ -138,30 +151,23 @@ export default class Popup {
         formSignup.elements.password.value,
       );
       signupPromise
-      // .then((res) => {
-      //   console.log('promise');
-      //   console.log('popup res:', res);
-      //   if (res) {
-      //     console.log(res);
-      //     return Promise.reject(new Error(`Ошибка тата: ${res.status}`));
-      //   }
-      //   return res.json();
-      // })
         .then(() => {
-          this.clearContent();
+          // this.clearContent();
           this.setContentSuccess();
           this.element.classList.add('signin');
           this.element.classList.remove('signup');
           this.element.textContent = 'Войти';
+          // this.clearContent();
+          // this.setContent();
 
           // this.userInfoData.setUserInfo(res.name, res.email, res.password);
           // this.close();
         })
 
         .catch((err) => {
-          throw new Error(`Ошибка hhh: ${err}`);
+          throw new Error(`Ошибка: ${err}`);
         });
-    } else {
+    } else if (event.currentTarget.name === 'signin') {
       const formSignin = event.currentTarget;
       const signinPromise = this.mainApi.signin(
         formSignin.elements.email.value,

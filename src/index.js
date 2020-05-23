@@ -18,7 +18,8 @@ const mainApi = new MainApi('http://localhost:3000',
 const header = new Header(false);
 const createValidator = (...args) => new Form(...args);
 
-const signupButton = document.querySelector('.signup');
+// const signupButton = document.querySelector('.signup');
+const signupButton = document.querySelector('.menue__item_type_feachered');
 const popupSignup = new Popup(signupButton, mainApi, header);
 popupSignup.setContent();
 popupSignup.configureInputPopup(createValidator);
@@ -26,7 +27,7 @@ popupSignup.configureInputPopup(createValidator);
 popupSignup.setEventListeners();
 popupSignup.setFormEventListeners();
 // const signinButton = document.querySelector('.signin');
-const popupSignin = new Popup(signupButton, mainApi, header);
-popupSignin.setContent();
-popupSignup.configureInputPopup(createValidator);
-popupSignin.setEventListeners();
+// const popupSignin = new Popup(signupButton, mainApi, header);
+// popupSignin.setContent();
+// popupSignup.configureInputPopup(createValidator);
+// popupSignin.setEventListeners();
