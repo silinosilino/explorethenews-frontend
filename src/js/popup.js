@@ -31,25 +31,6 @@ export default class Popup {
      `);
   }
 
-  // setContentSignin() {
-  //   if (this.element.classList.contains('logo')) {
-  //     this.popupContent.insertAdjacentHTML('afterbegin', `
-  //       <h3 class="popup__title">Вход</h3>
-  //       <form class="popup__form" name="signin">
-  //           <span class="popup__input-title">Email</span>
-  //           <input type="email" name="email" class="popup__input popup__input_type_name" placeholder="Введите почту">
-  //           <span id="error-email" class="error-message"></span>
-  //           <span class="popup__input-title">Пароль</span>
-  //           <input type="text" name="password" class="popup__input popup__input_type_name" placeholder="Введите пароль">
-  //           <span id="error-password" class="error-message"></span>
-  //           <button type="submit" class="button button_type_popup">Войти</button>
-  //           <span class="popup__input-title popup__input-title_type_centered">или <a class="link link_type_popup" href="">Зарегистрироваться</a></span>
-  //       </form>
-  //   `);
-  //     this.form = this.popup.querySelector('.popup__form');
-  //   }
-  // }
-
   setContent() {
     if (this.element.classList.contains('signup')) {
       this.clearContent();
@@ -66,7 +47,7 @@ export default class Popup {
             <input type="text" name="username" class="popup__input popup__input_type_name" placeholder="Введите своё имя">
             <span id="error-username" class="error-message"></span>
             <button type="submit" class="button button_type_popup">Зарегистрироваться</button>
-            <span class="popup__input-title popup__input-title_type_centered">или <a class="link link_type_popup" href="">Войти</a></span>
+            <span class="popup__input-title popup__input-title_type_centered">или <a class="link link_type_popup signin" href="">Войти</a></span>
         </form>
     `);
     }
@@ -82,7 +63,7 @@ export default class Popup {
             <input type="text" name="password" class="popup__input popup__input_type_name" placeholder="Введите пароль">
             <span id="error-password" class="error-message"></span>
             <button type="submit" class="button button_type_popup">Войти</button>
-            <span class="popup__input-title popup__input-title_type_centered">или <a class="link link_type_popup" href="">Зарегистрироваться</a></span>
+            <span class="popup__input-title popup__input-title_type_centered">или <a class="link link_type_popup signup" href="">Зарегистрироваться</a></span>
         </form>
     `);
       this.form = this.popup.querySelector('.popup__form');
@@ -122,12 +103,19 @@ export default class Popup {
 
   configureInputPopup(createValidator) {
     this.element.addEventListener('click', () => {
-      console.log('click on this.element: ', this.element);
       this.open();
       this.setContent();
       this.form = this.popup.querySelector('.popup__form');
       createValidator(this.form).setEventListeners();
       this.setFormEventListeners();
+      const popupLink = this.popup.querySelector('.link_type_popup');
+      popupLink.addEventListener('click', () => {
+        this.open();
+        this.setContent();
+        this.form = this.popup.querySelector('.popup__form');
+        createValidator(this.form).setEventListeners();
+        this.setFormEventListeners();
+      });
     });
     // console.log('createValidator for this.form: ', this.form);
     // const createValidatorOutput = createValidator(this.form);
@@ -173,14 +161,18 @@ export default class Popup {
         formSignin.elements.email.value,
         formSignin.elements.password.value,
       );
-      signinPromise.then((res) => {
-        if (!res.ok) {
-          return Promise.reject(new Error(`Ошибка: ${res.status}`));
-        }
-        return res.json();
-      })
+      signinPromise
+      // .then((res) => {
+      //   if (!res.ok) {
+      //     return Promise.reject(new Error(`Ошибка: ${res.status}`));
+      //   }
+      //   return res.json();
+      // })
         .then((res) => {
-          this.header.render(res.name, true);
+          console.log('response:', res, res.name, res.token);
+          localStorage.setItem(res.name, res.token);
+          this.header.render(res.name);
+          // this.header.render(res.name, res.isLoggedIn = true);
           this.close();
         })
 

@@ -13,20 +13,29 @@ export default class Header {
     // this.color = props.color;
     // this.isLoggedIn = isLoggedIn;
     const header = document.querySelector('.header');
-    this.singUpButton = header.querySelector('.menue__item_type_feachered');
+    this.signupButton = header.querySelector('.menue__item_type_feachered');
     this.articles = header.querySelector('.menue__item_type_articles');
   }
 
 
-  render(props) {
-    if (props.isLoggedIn) {
-      this.articles.classlist.remove('menue__item_type_disabled');
-      this.signupButton.textContent = props.name;
-    } else {
-      this.articles.classlist.add('menue__item_type_disabled');
-      this.signupButton.textContent = 'Авторизоваться';
-    }
+  render(name) {
+    // this.articles.classlist.remove('menue__item_type_disabled');
+    this.signupButton.textContent = name;
+    this.signupButton.insertAdjacentHTML('beforeend', `
+      <svg class="menue__exit-pic">
+        <path class="menue__exit-pic-path menue__exit-pic-path_theme_light"></path>
+      </svg>
+    `);
   }
+  // render(props) {
+  //   if (props.isLoggedIn) {
+  //     this.articles.classlist.remove('menue__item_type_disabled');
+  //     this.signupButton.textContent = props.name;
+  //   } else {
+  //     this.articles.classlist.add('menue__item_type_disabled');
+  //     this.signupButton.textContent = 'Авторизоваться';
+  //   }
+  // }
 }
 
 
