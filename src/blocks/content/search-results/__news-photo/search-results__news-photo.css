@@ -1,9 +1,21 @@
 .search-results__news-photo{
-  max-width: 400px;
   width: 100%;
-  height: auto;
+  /* height: auto; */
+  height: 100%;
+  /* max-height: 272px; */
+  height: 272px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   margin-bottom: 20px;
+  object-fit: cover;
+  object-position: center;
+  /* min-height: 100%; */
+  overflow: hidden;
 
+
+  /* background-position: center; */
+  /* height: 272px; */
+  /* background-size: cover;
+  background-repeat: no-repeat;
+  background-color: pink; */
 }

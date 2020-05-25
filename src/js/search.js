@@ -17,9 +17,10 @@ export default class Search {
     const newsFinderPromise = this.newsApi.getNews(this.form.elements.search.value);
     newsFinderPromise.then((res) => {
       console.log(res);
-      const newsList = Array.from(res.articles);
+      // this.checkValidity(this.newsList);
+      const newsList = Array.from(res.articles).filter((cardData) => !cardData.description.match(/^http/));
       this.cardList.render(newsList);
-      console.log(newsList);
+      console.log(this.newsList);
     })
       .catch((err) => {
         throw new Error(`Ошибка: ${err}`);
@@ -41,3 +42,7 @@ export default class Search {
     }
   }
 }
+//   checkValidity() {
+//     return this.newsList.filter((cardData) => !cardData.description.match(/^http/));
+//   }
+// }

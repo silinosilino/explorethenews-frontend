@@ -19,13 +19,15 @@ export default class NewsCard {
   create() {
     this.card = document.createElement('div');
     this.card.insertAdjacentHTML('afterbegin', `
-      <img class="search-results__news-photo" alt="Новостная фотография">
-      <button class="search-results__mark-button">
-        <svg class="search-results__icon search-results__icon_type_flag">
-          <path class="search-results__flag-pic"></path>
-        </svg>
-        <span class="tooltip tooltip_type_help">Войдите, чтобы сохранять статьи</span>
-      </button>
+      <div class="search-result__image-container">
+        <img class="search-results__news-photo" alt="Новостная фотография">
+        <button class="search-results__mark-button">
+          <svg class="search-results__icon search-results__icon_type_flag">
+            <path class="search-results__flag-pic"></path>
+          </svg>
+          <span class="tooltip tooltip_type_help">Войдите, чтобы сохранять статьи</span>
+        </button>
+      </div>
       <div class="search-results__text-container">
         <p class="search-results__date"></p>
         <h4 class="search-results__title"></h4>
@@ -44,6 +46,14 @@ export default class NewsCard {
     cardSource.textContent = this.source;
     const cardImage = this.card.querySelector('.search-results__news-photo');
     cardImage.src = this.image;
+    // cardImage.setAttribute('style', `background-image: url(${this.image})`);
+    cardImage.onerror = function () {
+      // cardImage.setAttribute('style', 'background-image: url("../images/avatar/1.jpg")');
+      cardImage.src = require('../images/avatar/1.jpg').default;
+    };
+    // if (!cardImage.complete) {
+    //   cardImage.src = 'https://l-files.livejournal.net/og_image/339052/12762?v=1589990459';
+    // }
   }
 
   // updateLikes() {

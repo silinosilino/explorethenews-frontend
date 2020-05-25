@@ -14,6 +14,7 @@
 @import url("./__text-container/search-results__text-container.css");
 @import url("./__trash-pic/search-results__trash-pic.css");
 @import url("./__flag-pic/search-results__flag-pic.css");
+@import url("./__image-container/search-result__image-container.css");
 
 .search-results{
   width: 100%;
