@@ -9,6 +9,7 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 6;
     overflow: hidden;
+    word-wrap: break-word;
 }
 
 

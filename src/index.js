@@ -16,6 +16,7 @@ const mainApi = new MainApi('http://localhost:3000',
     // Authorization: 'No Auth',
     'Content-Type': 'application/json',
   });
+
 const createCard = (...args) => new NewsCard(...args);
 const cardList = new NewsCardList(document.querySelector('.search-results__news-grid'), createCard);
 const newsApi = new NewsApi();

@@ -1,9 +1,9 @@
 export default class NewsCardList {
-  constructor(container, createCard, api) {
+  constructor(container, createCard) {
     this.container = container;
     this.createCard = createCard;
     // this.openImageCallback = openImageCallback;
-    this.api = api;
+    // this.api = api;
   }
 
   render(arr) {

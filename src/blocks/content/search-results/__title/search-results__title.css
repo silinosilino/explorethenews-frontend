@@ -9,8 +9,12 @@
   margin-top: 0;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 4;
+  word-break: break-word;
   overflow: hidden;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  white-space: normal;
 }
 
 @media screen and (max-width: 1200px) {
