@@ -4,6 +4,8 @@ import Header from './js/header';
 import MainApi from './js/mainApi';
 import NewsApi from './js/newsApi';
 import Search from './js/search';
+import NewsCard from './js/newsCard';
+import NewsCardList from './js/newsCardList';
 // import UserInfo from './js/userInfo'
 
 import './vendor/normalize.css';
@@ -14,10 +16,10 @@ const mainApi = new MainApi('http://localhost:3000',
     // Authorization: 'No Auth',
     'Content-Type': 'application/json',
   });
-
-
+const createCard = (...args) => new NewsCard(...args);
+const cardList = new NewsCardList(document.querySelector('.search-results__news-grid'), createCard);
 const newsApi = new NewsApi();
-const search = new Search(newsApi);
+const search = new Search(newsApi, cardList);
 search.setEventListener();
 
 // const formSearch = document.querySelector('.search__form');
@@ -42,6 +44,8 @@ search.setEventListener();
 // userInfoData.getUserInfo();
 const header = new Header(false);
 const createValidator = (...args) => new Form(...args);
+// search.validate(createValidator);
+
 
 // const signupButton = document.querySelector('.signup');
 const signupButton = document.querySelector('.menue__item_type_feachered');
