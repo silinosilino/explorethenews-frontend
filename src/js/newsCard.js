@@ -3,7 +3,7 @@ export default class NewsCard {
     this.keyword = cardData.keyword;
     this.title = cardData.title;
     this.text = cardData.description;
-    this.date = cardData.publishedAt;
+    this.date = NewsCard.convertDate(cardData.publishedAt);
     this.source = cardData.source.name;
     this.link = cardData.url;
     this.image = cardData.urlToImage;
@@ -56,6 +56,17 @@ export default class NewsCard {
     // }
   }
 
+  static convertDate(date) {
+    const dateArr = date.toString().substr(0, 10).split('-');
+    const year = dateArr[0];
+    console.log(dateArr);
+    const day = dateArr[2];
+    const months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+    const month = months[Number(dateArr[1]) - 1];
+    const newDate = day + " " + month + ", " + year;
+    console.log(newDate);
+    return newDate;
+  }
   // updateLikes() {
   //   const initialCardsPromise = this.api.getInitialCards();
   //   initialCardsPromise.then((result) => {

@@ -170,8 +170,8 @@ export default class Popup {
       // })
         .then((res) => {
           console.log('response:', res, res.name, res.token);
-          localStorage.setItem(res.name, res.token);
-          this.header.render(res.name);
+          localStorage.setItem('explorethenews', res.token);
+          this.header.render('isLoggedIn', res.name);
           // this.header.render(res.name, res.isLoggedIn = true);
           this.close();
         })

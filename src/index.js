@@ -11,18 +11,36 @@ import NewsCardList from './js/newsCardList';
 import './vendor/normalize.css';
 import './style.css';
 
+const header = new Header();
+const token = localStorage.getItem('explorethenews');
 const mainApi = new MainApi('http://localhost:3000',
   {
-    // Authorization: 'No Auth',
+    Authorization: `Bearer ${token}`,
     'Content-Type': 'application/json',
   });
+const checkToken = () => {
+  if (!token) {
+    header.render('isNotRegistered');
+    return;
+  }
+  const getUserPromiss = mainApi.getUserData();
+  getUserPromiss.then((res) => {
+    console.log(res);
+    header.render('isLoggedIn', res.data.name);
+  }).catch((err) => {
+    header.render('isNotLoggedIn');
+    throw new Error(`Ошибка: ${err}`);
+  });
+};
+checkToken();
+
 
 const createCard = (...args) => new NewsCard(...args);
 const cardList = new NewsCardList(document.querySelector('.search-results__news-grid'), createCard);
 const newsApi = new NewsApi();
 const search = new Search(newsApi, cardList);
 search.setEventListener();
-
+// search.convertDate('2020-05-25T08:35:00Z');
 // const formSearch = document.querySelector('.search__form');
 // const searchButton = formSearch.querySelector('.button_type_search');
 // function newsFinder(event) {
@@ -43,7 +61,6 @@ search.setEventListener();
 
 // const userInfo = new UserInfo(userInfoData, mainApi);
 // userInfoData.getUserInfo();
-const header = new Header(false);
 const createValidator = (...args) => new Form(...args);
 // search.validate(createValidator);
 

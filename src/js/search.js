@@ -14,15 +14,22 @@ export default class Search {
     if (!this.isValid) {
       return;
     }
-    this.renderLoader(true);
+    Search.renderLoader(true);
     const newsFinderPromise = this.newsApi.getNews(this.form.elements.search.value);
     newsFinderPromise.then((res) => {
       console.log(res);
       // this.checkValidity(this.newsList);
       const newsList = Array.from(res.articles).filter((cardData) => !cardData.description.match(/(^http)|(----------)/));
-      this.cardList.render(newsList);
-      this.renderLoader(false);
-      console.log(this.newsList);
+      if (newsList.length < 1) {
+        Search.renderNothingFound(true);
+        Search.renderLoader(false);
+      } else {
+        this.cardList.render(newsList);
+        Search.renderLoader(false);
+        const searchResults = document.querySelector('.search-results');
+        searchResults.classList.remove('search-results_disabled');
+        console.log(this.newsList);
+      }
     })
       .catch((err) => {
         throw new Error(`Ошибка: ${err}`);
@@ -44,7 +51,7 @@ export default class Search {
     }
   }
 
-  renderLoader(isLoading) {
+  static renderLoader(isLoading) {
     const preloader = document.querySelector('.preloader');
     if (isLoading) {
       preloader.classList.remove('preloader_disabled');
@@ -52,6 +59,16 @@ export default class Search {
       preloader.classList.add('preloader_disabled');
     }
   }
+
+  static renderNothingFound(isNothingFound) {
+    const nothingFound = document.querySelector('.nothing-found');
+    if (isNothingFound) {
+      nothingFound.classList.remove('nothing-found_disabled');
+    } else {
+      nothingFound.classList.add('nothing-found_disabled');
+    }
+  }
+
 }
 
 
