@@ -13,9 +13,9 @@
 
 }
 
-.search-results__mark-button:hover .search-results__flag-pic{
+/* .search-results__mark-button:hover .search-results__flag-pic{
   stroke: #1A1B22;
-}
+} */
 
 .search-results__mark-button:hover .search-results__trash-pic{
   fill: #1A1B22;

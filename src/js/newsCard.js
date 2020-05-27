@@ -1,5 +1,5 @@
 export default class NewsCard {
-  constructor(cardData) {
+  constructor(cardData, userStatus) {
     this.keyword = cardData.keyword;
     this.title = cardData.title;
     this.text = cardData.description;
@@ -8,6 +8,7 @@ export default class NewsCard {
     this.link = cardData.url;
     this.image = cardData.urlToImage;
     this.owner = cardData.owner;
+    this.userStatus = userStatus;
     // this.api = api;
     // this.cardId = cardData._id;
     // this.openImageCallback = openImageCallback;
@@ -59,13 +60,20 @@ export default class NewsCard {
   static convertDate(date) {
     const dateArr = date.toString().substr(0, 10).split('-');
     const year = dateArr[0];
-    console.log(dateArr);
     const day = dateArr[2];
     const months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
     const month = months[Number(dateArr[1]) - 1];
-    const newDate = day + " " + month + ", " + year;
-    console.log(newDate);
+    const newDate = `${day} ${month}, ${year}`;
     return newDate;
+  }
+
+  renderIcon() {
+    const markButton = this.card.querySelector('.search-results__mark-button');
+    const markButtonFlag = markButton.querySelector('.search-results__flag-pic');
+    console.log(this.userStatus);
+    if (this.userStatus.getStatus()) {
+      markButtonFlag.classList.add('search-results__flag-pic_type_loggedin');
+    }
   }
   // updateLikes() {
   //   const initialCardsPromise = this.api.getInitialCards();

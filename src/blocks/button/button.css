@@ -10,3 +10,6 @@
   line-height: 22px;
   border-radius: 100px;
 }
+.button_type_disabled{
+  display: none;
+}

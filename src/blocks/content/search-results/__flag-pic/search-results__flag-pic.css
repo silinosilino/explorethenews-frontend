@@ -4,3 +4,7 @@
   stroke-width: 2px;
   transition: all 0.35s ease;
 }
+
+.search-results__flag-pic_type_loggedin{
+  stroke: #1A1B22;
+}

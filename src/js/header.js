@@ -15,11 +15,13 @@ export default class Header {
     const header = document.querySelector('.header');
     this.signupButton = header.querySelector('.menue__item_type_feachered');
     this.articles = header.querySelector('.menue__item_type_articles');
+    this.isLoggedIn = false;
   }
 
 
   render(status, name) {
     if (status === 'isLoggedIn') {
+      this.isLoggedIn = true;
       this.articles.classList.remove('menue__item_type_disabled');
       this.signupButton.textContent = name;
       this.signupButton.insertAdjacentHTML('beforeend', `

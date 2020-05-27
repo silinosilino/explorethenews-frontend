@@ -14,6 +14,9 @@ export default class Search {
     if (!this.isValid) {
       return;
     }
+    this.cardList.clear();
+    const searchResults = document.querySelector('.search-results');
+    searchResults.classList.add('search-results_disabled');
     Search.renderLoader(true);
     const newsFinderPromise = this.newsApi.getNews(this.form.elements.search.value);
     newsFinderPromise.then((res) => {
@@ -26,7 +29,6 @@ export default class Search {
       } else {
         this.cardList.render(newsList);
         Search.renderLoader(false);
-        const searchResults = document.querySelector('.search-results');
         searchResults.classList.remove('search-results_disabled');
         console.log(this.newsList);
       }
