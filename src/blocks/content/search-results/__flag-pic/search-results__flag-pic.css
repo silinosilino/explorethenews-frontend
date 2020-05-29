@@ -8,3 +8,9 @@
 .search-results__flag-pic_type_loggedin{
   stroke: #1A1B22;
 }
+
+.search-results__flag-pic_type_saved{
+  fill: blue;
+  stroke: blue;
+  transition: 0.01s ease;
+}

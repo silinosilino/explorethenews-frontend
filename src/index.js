@@ -23,7 +23,7 @@ const mainApi = new MainApi('http://localhost:3000',
 const userStatus = new UserStatus(false);
 
 const createCard = (...args) => new NewsCard(...args);
-const cardList = new NewsCardList(document.querySelector('.search-results__news-grid'), createCard, userStatus);
+const cardList = new NewsCardList(document.querySelector('.search-results__news-grid'), createCard, userStatus, mainApi);
 const newsApi = new NewsApi();
 const search = new Search(newsApi, cardList);
 
@@ -36,7 +36,9 @@ const checkToken = () => {
   const getUserPromiss = mainApi.getUserData();
   getUserPromiss.then((res) => {
     userStatus.switchStatus();
+    console.log('Login happened', userStatus);
     header.render('isLoggedIn', res.data.name);
+    // cardList.renderIcon();
   }).catch((err) => {
     header.render('isNotLoggedIn');
     throw new Error(`Ошибка: ${err}`);
@@ -47,6 +49,7 @@ checkToken();
 
 search.setEventListener();
 cardList.setEventListener();
+
 // search.convertDate('2020-05-25T08:35:00Z');
 // const formSearch = document.querySelector('.search__form');
 // const searchButton = formSearch.querySelector('.button_type_search');
@@ -74,7 +77,7 @@ const createValidator = (...args) => new Form(...args);
 
 // const signupButton = document.querySelector('.signup');
 const signupButton = document.querySelector('.menue__item_type_feachered');
-const popupSignup = new Popup(signupButton, mainApi, header);
+const popupSignup = new Popup(signupButton, mainApi, header, userStatus, cardList);
 // popupSignup.setContent();
 popupSignup.configureInputPopup(createValidator);
 // console.log(popupSignup.form);
@@ -85,3 +88,4 @@ popupSignup.setEventListeners();
 // popupSignin.setContent();
 // popupSignup.configureInputPopup(createValidator);
 // popupSignin.setEventListeners();
+// cardList.renderIcon();

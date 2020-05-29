@@ -1,12 +1,9 @@
-// import NewsCardList from "./newsCardList";
-
 export default class Search {
   constructor(newsApi, cardList) {
     this.form = document.querySelector('.search__form');
     this.newsApi = newsApi;
     this.cardList = cardList;
   }
-
 
   findNews(event) {
     event.preventDefault();
@@ -18,27 +15,30 @@ export default class Search {
     const searchResults = document.querySelector('.search-results');
     searchResults.classList.add('search-results_disabled');
     Search.renderLoader(true);
-    const newsFinderPromise = this.newsApi.getNews(this.form.elements.search.value);
+    const keyword = this.form.elements.search.value;
+    const newsFinderPromise = this.newsApi.getNews(keyword);
+    console.log(keyword);
     newsFinderPromise.then((res) => {
-      console.log(res);
+      console.log('сюда попадает', res);
       // this.checkValidity(this.newsList);
       const newsList = Array.from(res.articles).filter((cardData) => !cardData.description.match(/(^http)|(----------)/));
       if (newsList.length < 1) {
         Search.renderNothingFound(true);
         Search.renderLoader(false);
       } else {
-        this.cardList.render(newsList);
+        this.cardList.render(newsList, keyword);
         Search.renderLoader(false);
         searchResults.classList.remove('search-results_disabled');
         console.log(this.newsList);
       }
     })
       .catch((err) => {
-        throw new Error(`Ошибка: ${err}`);
+        throw new Error(`Ошибка выдачи: ${err}`);
       });
   }
 
   setEventListener() {
+    console.log('this.form', this.form);
     this.form.addEventListener('submit', this.findNews.bind(this));
   }
 

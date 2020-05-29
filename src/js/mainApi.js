@@ -52,4 +52,39 @@ export default class MainApi {
         return res.json();
       });
   }
+
+  createArticle(keyword, title, text, date, source, link, image) {
+    return fetch(`${this.baseUrl}/articles`, {
+      method: 'POST',
+      headers: this.headers,
+      body: JSON.stringify({
+        keyword,
+        title,
+        text,
+        date,
+        source,
+        link,
+        image,
+      }),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          return Promise.reject(new Error(`Ошибка: ${res.status}`));
+        }
+        return res.json();
+      });
+  }
+
+  deleteArticle(articleId) {
+    return fetch(`${this.baseUrl}/articles/${articleId}`, {
+      method: 'DELETE',
+      headers: this.headers,
+    })
+      .then((res) => {
+        if (!res.ok) {
+          return Promise.reject(new Error(`Ошибка: ${res.status}`));
+        }
+        return res.json();
+      });
+  }
 }

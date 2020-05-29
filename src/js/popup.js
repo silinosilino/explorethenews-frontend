@@ -1,5 +1,5 @@
 export default class Popup {
-  constructor(element, mainAapi, header) {
+  constructor(element, mainAapi, header, userStatus, cardList) {
     this.element = element;
     this.popup = document.createElement('div');
     this.popup.classList.add('popup');
@@ -14,6 +14,8 @@ export default class Popup {
     this.popupContent.appendChild(this.popupCloser);
     this.mainApi = mainAapi;
     this.header = header;
+    this.userStatus = userStatus;
+    this.cardList = cardList;
     // this.signupButton = document.querySelector('.menue__item_type_feachered');
   }
 
@@ -171,6 +173,9 @@ export default class Popup {
         .then((res) => {
           console.log('response:', res, res.name, res.token);
           localStorage.setItem('explorethenews', res.token);
+          this.userStatus.isLoggedIn = true;
+          console.log("popup: cardList", this.cardList);
+          this.cardList.updateIcon();
           this.header.render('isLoggedIn', res.name);
           // this.header.render(res.name, res.isLoggedIn = true);
           this.close();
