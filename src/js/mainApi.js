@@ -56,7 +56,10 @@ export default class MainApi {
   createArticle(keyword, title, text, date, source, link, image) {
     return fetch(`${this.baseUrl}/articles`, {
       method: 'POST',
-      headers: this.headers,
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('explorethenews')}`,
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
         keyword,
         title,
@@ -78,7 +81,10 @@ export default class MainApi {
   deleteArticle(articleId) {
     return fetch(`${this.baseUrl}/articles/${articleId}`, {
       method: 'DELETE',
-      headers: this.headers,
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('explorethenews')}`,
+        'Content-Type': 'application/json',
+      },
     })
       .then((res) => {
         if (!res.ok) {

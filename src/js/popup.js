@@ -104,7 +104,15 @@ export default class Popup {
   }
 
   configureInputPopup(createValidator) {
-    this.element.addEventListener('click', () => {
+    this.element.addEventListener('click', (event) => {
+      if (event.currentTarget.classList.contains('signout')) {
+        console.log('clicked on signout');
+        this.header.render('isNotLoggedIn');
+        this.userStatus.isLoggedIn = false;
+        localStorage.setItem('explorethenews', 0);
+        this.element.classList.remove('signout');
+        return;
+      }
       this.open();
       this.setContent();
       this.form = this.popup.querySelector('.popup__form');
@@ -119,11 +127,6 @@ export default class Popup {
         this.setFormEventListeners();
       });
     });
-    // console.log('createValidator for this.form: ', this.form);
-    // const createValidatorOutput = createValidator(this.form);
-    // console.log('createValidator returned: ', createValidatorOutput);
-    // console.log('setEventListeners: ', createValidatorOutput.setEventListeners);
-    // createValidatorOutput.setEventListeners();
   }
 
   setFormEventListeners() {
@@ -158,32 +161,32 @@ export default class Popup {
           throw new Error(`Ошибка: ${err}`);
         });
     } else if (event.currentTarget.name === 'signin') {
+      console.log(event.currentTarget.name);
       const formSignin = event.currentTarget;
       const signinPromise = this.mainApi.signin(
         formSignin.elements.email.value,
         formSignin.elements.password.value,
       );
       signinPromise
-      // .then((res) => {
-      //   if (!res.ok) {
-      //     return Promise.reject(new Error(`Ошибка: ${res.status}`));
-      //   }
-      //   return res.json();
-      // })
         .then((res) => {
-          console.log('response:', res, res.name, res.token);
           localStorage.setItem('explorethenews', res.token);
           this.userStatus.isLoggedIn = true;
-          console.log("popup: cardList", this.cardList);
           this.cardList.updateIcon();
           this.header.render('isLoggedIn', res.name);
-          // this.header.render(res.name, res.isLoggedIn = true);
+          this.element.classList.add('signout');
+          this.element.classList.remove('signin');
           this.close();
         })
-
         .catch((err) => {
           throw new Error(`Ошибка: ${err}`);
         });
     }
+  //   else if (event.currentTarget.name === 'signout') {
+  //     console.log('clicked on signout');
+  //     this.header.render('isNotLoggedIn');
+  //     this.userStatus.isLoggedIn = false;
+  //     localStorage.setItem('explorethenews', 0);
+  //     localStorage.removeItem('explorethenews');
+  //   }
   }
 }
