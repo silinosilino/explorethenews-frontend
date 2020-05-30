@@ -150,7 +150,7 @@ export default class NewsCard {
 
   setCardEventListener() {
     this.card.addEventListener('click', () => {
-      console.log('click');
+      // console.log('click');
       window.open(this.link, '_blank');
       // document.location.href = this.link;
     });

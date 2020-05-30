@@ -13,6 +13,7 @@ export default class NewsApi {
           + `q=${keyword}&`
           + `from=${date}&`
           + 'sortBy=popularity&'
+          + 'pageSize=100&'
           + 'apiKey=bb6d7c46c4b7438fadf2c65adef2fbb2';
     return fetch(url, {
       headers: this.headers,

@@ -1,5 +1,5 @@
 export default class Popup {
-  constructor(element, mainAapi, header, userStatus, cardList) {
+  constructor(element, mainAapi, header, userStatus, cardList, createValidator) {
     this.element = element;
     this.popup = document.createElement('div');
     this.popup.classList.add('popup');
@@ -16,6 +16,7 @@ export default class Popup {
     this.header = header;
     this.userStatus = userStatus;
     this.cardList = cardList;
+    this.createValidator = createValidator;
     // this.signupButton = document.querySelector('.menue__item_type_feachered');
   }
 
@@ -33,8 +34,11 @@ export default class Popup {
      `);
   }
 
-  setContent() {
-    if (this.element.classList.contains('signup')) {
+  setContent(event) {
+    console.log('Starting setConten, event.target', event.target);
+    // if (this.element.classList.contains('signup')) {
+    if (event.target.classList.contains('signup')) {
+      console.log('currently in signup');
       this.clearContent();
       this.popupContent.insertAdjacentHTML('afterbegin', `
         <h3 class="popup__title">Регистрация</h3>
@@ -53,7 +57,8 @@ export default class Popup {
         </form>
     `);
     }
-    if (this.element.classList.contains('signin')) {
+    // if (this.element.classList.contains('signin')) {
+    if (event.target.classList.contains('signin')) {
       this.clearContent();
       this.popupContent.insertAdjacentHTML('afterbegin', `
         <h3 class="popup__title">Вход</h3>
@@ -65,11 +70,12 @@ export default class Popup {
             <input type="text" name="password" class="popup__input popup__input_type_name" placeholder="Введите пароль">
             <span id="error-password" class="error-message"></span>
             <button type="submit" class="button button_type_popup">Войти</button>
-            <span class="popup__input-title popup__input-title_type_centered">или <a class="link link_type_popup signup" href="">Зарегистрироваться</a></span>
+            <span class="popup__input-title popup__input-title_type_centered">или <a class="link link_type_popup signup">Зарегистрироваться</a></span>
         </form>
     `);
       this.form = this.popup.querySelector('.popup__form');
     }
+    this.setPopupEventListeners();
   }
 
 
@@ -88,7 +94,9 @@ export default class Popup {
   }
 
   open() {
+    console.log("starting open");
     this.popup.classList.add('popup_is-opened');
+    console.log('popup after opening', this.popup);
     if (window.screen.width < 601) {
       const menueIcon = document.querySelector('.menue__icon');
       menueIcon.classList.add('menue__icon_disabled');
@@ -103,7 +111,8 @@ export default class Popup {
     }
   }
 
-  configureInputPopup(createValidator) {
+  configureInputPopup() {
+    console.log('configureInputPopup: starting');
     this.element.addEventListener('click', (event) => {
       if (event.currentTarget.classList.contains('signout')) {
         console.log('clicked on signout');
@@ -113,19 +122,21 @@ export default class Popup {
         this.element.classList.remove('signout');
         return;
       }
+      console.log('configureInputPopup: before open');
       this.open();
-      this.setContent();
+      this.setContent(event);
       this.form = this.popup.querySelector('.popup__form');
-      createValidator(this.form).setEventListeners();
+      this.createValidator(this.form).setEventListeners();
       this.setFormEventListeners();
-      const popupLink = this.popup.querySelector('.link_type_popup');
-      popupLink.addEventListener('click', () => {
-        this.open();
-        this.setContent();
-        this.form = this.popup.querySelector('.popup__form');
-        createValidator(this.form).setEventListeners();
-        this.setFormEventListeners();
-      });
+      // const popupLink = this.popup.querySelector('.link_type_popup');
+      // console.log("configureInputPopup: popupLink:", popupLink);
+      // popupLink.addEventListener('click', () => {
+      //   this.open();
+      //   this.setContent();
+      //   this.form = this.popup.querySelector('.popup__form');
+      //   this.createValidator(this.form).setEventListeners();
+      //   this.setFormEventListeners();
+      // });
     });
   }
 
@@ -161,7 +172,6 @@ export default class Popup {
           throw new Error(`Ошибка: ${err}`);
         });
     } else if (event.currentTarget.name === 'signin') {
-      console.log(event.currentTarget.name);
       const formSignin = event.currentTarget;
       const signinPromise = this.mainApi.signin(
         formSignin.elements.email.value,
@@ -181,6 +191,26 @@ export default class Popup {
           throw new Error(`Ошибка: ${err}`);
         });
     }
+  }
+
+  setPopupEventListeners() {
+    const extraButton = document.querySelector('.link_type_popup');
+    console.log('setPopupEventListeners: extraButton:', extraButton);
+    extraButton.addEventListener('click', (event) => {
+      console.log('extraButton: click');
+      // this.configureInputPopup.bind(this);
+      // this.configureInputPopup();
+      // this.open();
+      // console.log('open happened');
+      // this.clearContent();
+      console.log('popup should have been opened', this.popup);
+      this.setContent(event);
+      this.form = this.popup.querySelector('.popup__form');
+      this.createValidator(this.form).setEventListeners();
+      this.setFormEventListeners();
+    });
+  }
+
   //   else if (event.currentTarget.name === 'signout') {
   //     console.log('clicked on signout');
   //     this.header.render('isNotLoggedIn');
@@ -188,5 +218,4 @@ export default class Popup {
   //     localStorage.setItem('explorethenews', 0);
   //     localStorage.removeItem('explorethenews');
   //   }
-  }
 }

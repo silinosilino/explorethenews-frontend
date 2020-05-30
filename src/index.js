@@ -81,11 +81,18 @@ const createValidator = (...args) => new Form(...args);
 
 // const signupButton = document.querySelector('.signup');
 
-const popupSignup = new Popup(signupButton, mainApi, header, userStatus, cardList);
+const popupSignup = new Popup(signupButton, mainApi, header, userStatus, cardList, createValidator);
 // popupSignup.setContent();
-popupSignup.configureInputPopup(createValidator);
+popupSignup.configureInputPopup();
 // console.log(popupSignup.form);
 popupSignup.setEventListeners();
+// popupSignup.setPopupEventListeners(createValidator);
+
+// const extraButton = document.querySelector('.link_type_popup');
+// const popupExtra = new Popup(extraButton, mainApi, header, userStatus, cardList);
+// console.log(popupExtra);
+// popupExtra.configureInputPopup(createValidator);
+// popupExtra.setEventListeners();
 // popupSignup.setFormEventListeners();
 // const signinButton = document.querySelector('.signin');
 // const popupSignin = new Popup(signupButton, mainApi, header);
