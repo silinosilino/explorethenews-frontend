@@ -73,6 +73,7 @@ export default class NewsCardList {
     const card = this.createCard(cardData, this.userStatus, this.mainApi);
     card.create();
     card.renderIcon();
+    card.setCardEventListener();
     this.container.appendChild(card.card);
     this.cardsArray.push(card);
     return card;

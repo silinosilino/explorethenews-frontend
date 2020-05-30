@@ -141,9 +141,24 @@ export default class NewsCard {
   setEventListeners() {
     // constButton = this.markButton.querySelector('.search-results__icon_type_flag');
     this.markButton.addEventListener('click', this.save.bind(this));
+
     //   } else if (event.currentTarget.firstChild.classList.containes('search-results__flag-pic_type_saved')) {
     //     this.remove.bind(this);
     //   }
+    // });
+  }
+
+  setCardEventListener() {
+    this.card.addEventListener('click', () => {
+      console.log('click');
+      window.open(this.link, '_blank');
+      // document.location.href = this.link;
+    });
+    // this.card.addEventListener('hover', () => {
+    //   console.log('click');
+    //   // this.card.style = 'cursor: pointer';
+    //   this.card.style.cursor = 'pointer';
+    //   // document.location.href = this.link;
     // });
   }
 
