@@ -6,11 +6,12 @@ import NewsApi from './js/newsApi';
 import Search from './js/search';
 import NewsCard from './js/newsCard';
 import NewsCardList from './js/newsCardList';
+import UserStatus from './js/userStatus';
 // import UserInfo from './js/userInfo'
 
 import './vendor/normalize.css';
 import './style.css';
-import UserStatus from './js/userStatus';
+
 
 const header = new Header();
 const token = localStorage.getItem('explorethenews');
@@ -21,6 +22,7 @@ const mainApi = new MainApi('http://localhost:3000',
   });
 
 const userStatus = new UserStatus(false);
+const signupButton = document.querySelector('.menue__item_type_feachered');
 
 const createCard = (...args) => new NewsCard(...args);
 const cardList = new NewsCardList(document.querySelector('.search-results__news-grid'), createCard, userStatus, mainApi);
@@ -38,6 +40,8 @@ const checkToken = () => {
     userStatus.switchStatus();
     console.log('Login happened', userStatus);
     header.render('isLoggedIn', res.data.name);
+    signupButton.classList.add('signout');
+    signupButton.classList.remove('signin');
     // cardList.renderIcon();
   }).catch((err) => {
     header.render('isNotLoggedIn');
@@ -76,7 +80,7 @@ const createValidator = (...args) => new Form(...args);
 
 
 // const signupButton = document.querySelector('.signup');
-const signupButton = document.querySelector('.menue__item_type_feachered');
+
 const popupSignup = new Popup(signupButton, mainApi, header, userStatus, cardList);
 // popupSignup.setContent();
 popupSignup.configureInputPopup(createValidator);

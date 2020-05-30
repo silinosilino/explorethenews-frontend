@@ -43,7 +43,10 @@ export default class MainApi {
 
   getUserData() {
     return fetch(`${this.baseUrl}/users/me`, {
-      headers: this.headers,
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('explorethenews')}`,
+        'Content-Type': 'application/json',
+      },
     })
       .then((res) => {
         if (!res.ok) {
@@ -81,6 +84,21 @@ export default class MainApi {
   deleteArticle(articleId) {
     return fetch(`${this.baseUrl}/articles/${articleId}`, {
       method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('explorethenews')}`,
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((res) => {
+        if (!res.ok) {
+          return Promise.reject(new Error(`Ошибка: ${res.status}`));
+        }
+        return res.json();
+      });
+  }
+
+  getArticles() {
+    return fetch(`${this.baseUrl}/articles`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('explorethenews')}`,
         'Content-Type': 'application/json',

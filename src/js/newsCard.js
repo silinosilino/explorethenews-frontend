@@ -1,20 +1,16 @@
 export default class NewsCard {
   constructor(cardData, userStatus, mainApi) {
-    this.keyword = cardData.keyword;
+    this.keyword = cardData.keyword.charAt(0).toUpperCase() + cardData.keyword.slice(1);
     this.title = cardData.title;
     this.text = cardData.description;
-    this.date = NewsCard.convertDate(cardData.publishedAt);
+    this.date = NewsCard.convertDate(cardData.publishedAt, cardData);
     this.source = cardData.source.name;
     this.link = cardData.url;
     this.image = cardData.urlToImage;
     this.owner = cardData.owner;
     this.userStatus = userStatus;
     this.mainApi = mainApi;
-    // this.cardId = cardData._id;
-    // this.openImageCallback = openImageCallback;
-    // this.openImage = this.openImage.bind(this);
-    // this.markLiked = this.markLiked.bind(this);
-    // this.updateLikes = this.updateLikes.bind(this);
+    this.cardId = cardData._id;
   }
 
   create() {
@@ -52,12 +48,10 @@ export default class NewsCard {
       // cardImage.setAttribute('style', 'background-image: url("../images/avatar/1.jpg")');
       cardImage.src = require('../images/avatar/1.jpg').default;
     };
-    // if (!cardImage.complete) {
-    //   cardImage.src = 'https://l-files.livejournal.net/og_image/339052/12762?v=1589990459';
-    // }
   }
 
-  static convertDate(date) {
+  static convertDate(date, cardData) {
+    if (!date) { return cardData.date; }
     const dateArr = date.toString().substr(0, 10).split('-');
     const year = dateArr[0];
     const day = dateArr[2];
@@ -77,20 +71,27 @@ export default class NewsCard {
       console.log('in render', this.mainApi);
     }
   }
-  // updateLikes() {
-  //   const initialCardsPromise = this.api.getInitialCards();
-  //   initialCardsPromise.then((result) => {
-  //     const cardItem = result.cardsArray.find((item) => this.cardId === item._id);
-  //     return cardItem;
-  //   })
-  //     .then((item) => {
-  //       this.cardLikeCounter.textContent = item.likes.length;
-  //     });
-  // }
+
+  renderSaved() {
+    this.card.insertAdjacentHTML('afterbegin', `
+    <span class="tooltip tooltip_type_keyword"></span>`);
+    const searchIcon = this.card.querySelector('.search-results__icon');
+    searchIcon.classList.add('search-results__icon_type_trash');
+    searchIcon.classList.remove('search-results__icon_type_flag');
+    const flagPic = this.card.querySelector('.search-results__flag-pic');
+    flagPic.classList.add('search-results__trash-pic');
+    flagPic.classList.remove('search-results__flag-pic');
+    const keywordTooltip = this.card.querySelector('.tooltip_type_keyword');
+    keywordTooltip.textContent = this.keyword;
+    const helpTooltip = this.card.querySelector('.tooltip_type_help');
+    helpTooltip.textContent = 'Убрать из сохраненных';
+    // tooltip.classList.remove('tooltip_type_help');
+    // this.setRemoveSavedArticlesEventListeners();
+  }
+
 
   save() {
     // if (event.currentTarget.child.child.classList.containes('search-results__flag-pic_type_saved')) {
-
     // console.log('in save', this.mainApi);
     // console.log('event.target', event.target);
     // console.log('event.currentTarget', event.currentTarget);
@@ -124,17 +125,17 @@ export default class NewsCard {
     // this.card.parentNode.removeChild(this.card);
   }
 
-  // if (event.target.classList.contains('search-results__flag-pic')) {
-  //   event.target.classList.add('search-results__flag-pic_saved');
-  //   this.mainApi.unlikeCard(this.cardId);
-  // this.updateLikes();
-  // } else {
-  //   event.target.classList.add('place-card__like-icon_liked');
-  //   this.api.likeCard(this.cardId);
-  //   this.updateLikes();
-  // }
-  //   }
-  // }
+  removeSavedCard() {
+    this.mainApi.deleteArticle(this.cardId)
+      .then((res) => {
+        if (res) {
+          this.card.parentNode.removeChild(this.card);
+        }
+      })
+      .catch((err) => {
+        throw new Error(`Ошибка удаления карточки: ${err}`);
+      });
+  }
 
 
   setEventListeners() {
@@ -155,6 +156,16 @@ export default class NewsCard {
     });
   }
 
+  setSavedArticlesEventListeners() {
+    // this.markButton.addEventListener('click', this.removeSavedCard(this.articleId));
+    const markButtonDelete = this.card.querySelector('.search-results__icon_type_trash');
+    // console.log('Where am I?', markButtonDelete);
+    markButtonDelete.addEventListener('click', () => {
+      console.log('click on saved card');
+      console.log(this);
+      this.removeSavedCard();
+    });
+  }
 
   // setEventListeners() {
   //   const flagButton = this.markButton.querySelector('.search-results__icon_type_flag');
@@ -165,33 +176,5 @@ export default class NewsCard {
   //       this.remove.bind(this);
   //     }
   //   });
-  // }
-
-
-  // checkLikes() {
-  //   if (this.like.some((like) => like._id === this.api.userId)) {
-  //     this.placeCard.querySelector('.place-card__like-icon').classList.add('place-card__like-icon_liked');
-  //   } else {
-  //     this.placeCard.querySelector('.place-card__like-icon').classList.remove('place-card__like-icon_liked');
-  //   }
-  // }
-
-  // setEventListeners() {
-  //   this.placeCard.querySelector('.place-card__like-icon').addEventListener('click', this.markLiked);
-  //   this.placeCard.querySelector('.place-card__delete-icon').addEventListener('click', (event) => {
-  //     if (window.confirm('Вы действительно хотите удалить эту карточку?')) {
-  //       const deletePromise = this.api.deleteCard(this.cardId);
-  //       deletePromise.then((res) => {
-  //         if (!res.ok) {
-  //           return Promise.reject(`Ошибка: ${res.status}`);
-  //         }
-  //         this.remove();
-  //       })
-  //         .catch((err) => {
-  //           console.log(err);
-  //         });
-  //     }
-  //   });
-  //   this.placeCard.querySelector('.place-card__image').addEventListener('click', this.openImage);
   // }
 }

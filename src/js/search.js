@@ -16,10 +16,10 @@ export default class Search {
     searchResults.classList.add('search-results_disabled');
     Search.renderLoader(true);
     const keyword = this.form.elements.search.value;
+    // const keyword = inputVal.charAt(0).toUpperCase() + inputVal.slice(1);
     const newsFinderPromise = this.newsApi.getNews(keyword);
     console.log(keyword);
     newsFinderPromise.then((res) => {
-      console.log('сюда попадает', res);
       // this.checkValidity(this.newsList);
       const newsList = Array.from(res.articles).filter((cardData) => !cardData.description.match(/(^http)|(----------)/));
       if (newsList.length < 1) {
@@ -70,7 +70,6 @@ export default class Search {
       nothingFound.classList.add('nothing-found_disabled');
     }
   }
-
 }
 
 
