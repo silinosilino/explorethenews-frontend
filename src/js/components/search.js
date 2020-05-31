@@ -15,6 +15,7 @@ export default class Search {
       return;
     }
     this.cardList.clear();
+    this.renderNothingFound(false);
     const searchResults = document.querySelector('.search-results');
     searchResults.classList.add('search-results_disabled');
     Search.renderLoader(true);
