@@ -28,9 +28,10 @@ export default class Popup {
     this.popupContent.insertAdjacentHTML('afterbegin', `
         <h3 class="popup__title">Пользователь успешно зарегистрирован</h3>
         <form class="popup__form" name="signup">
-            <span class="popup__input-title"><a class="link_type_popup" href="">Выполнить вход</a></span>
+            <span class="popup__input-title"><p class="link_type_popup signin">Выполнить вход</a></span>
         </form>
      `);
+    this.setPopupEventListeners();
   }
 
   setContent(event) {
@@ -66,7 +67,7 @@ export default class Popup {
             <span id="error-password" class="error-message"></span>
             <span id="error-response" class="error-message"></span>
             <button type="submit" class="button button_type_popup">Войти</button>
-            <span class="popup__input-title popup__input-title_type_centered">или <p class="link link_type_popup signup">Зарегистрироваться</p></span>
+            <span class="popup__input-title popup__input-title_type_centered">или <p class="link_type_popup signup">Зарегистрироваться</p></span>
         </form>
     `);
     }

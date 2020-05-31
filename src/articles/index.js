@@ -7,7 +7,8 @@ import '../vendor/normalize.css';
 import './articles.css';
 
 const token = localStorage.getItem('explorethenews');
-const mainApi = new MainApi('http://localhost:3000',
+// const mainApi = new MainApi('http://localhost:3000',
+const mainApi = new MainApi('http://api.explorethenews.tk',
   {
     Authorization: `Bearer ${token}`,
     'Content-Type': 'application/json',
