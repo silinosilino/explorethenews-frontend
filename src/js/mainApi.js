@@ -81,7 +81,7 @@ export default class MainApi {
     })
       .then((res) => {
         if (!res.ok) {
-          return Promise.reject(new Error(`Ошибка: ${res.status}`));
+          return Promise.reject(new Error(`Ошибка сохранения карточки:: ${res.status}, ${res.statusText}`));
         }
         return res.json();
       });
@@ -97,7 +97,7 @@ export default class MainApi {
     })
       .then((res) => {
         if (!res.ok) {
-          return Promise.reject(new Error(`Ошибка: ${res.status}`));
+          return Promise.reject(new Error(`Ошибка удаления карточки: ${res.status}, ${res.statusText}`));
         }
         return res.json();
       });
@@ -112,7 +112,7 @@ export default class MainApi {
     })
       .then((res) => {
         if (!res.ok) {
-          return Promise.reject(new Error(`Ошибка: ${res.status}`));
+          return Promise.reject(new Error(`Ошибка: ${res.status}, ${res.statusText}`));
         }
         return res.json();
       });

@@ -71,6 +71,7 @@ export default class Popup {
         </form>
     `);
     }
+    this.popupContent.appendChild(this.popupCloser);
     this.setPopupEventListeners();
   }
 

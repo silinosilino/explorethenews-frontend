@@ -1,7 +1,19 @@
 export default class Intro {
-  constructor() {
+  constructor(mainApi) {
+    this.mainApi = mainApi;
     this.introTitle = document.querySelector('.intro__title');
     this.introText = document.querySelector('.intro__text');
+  }
+
+  update() {
+    const getArticlesPromiss = this.mainApi.getArticles();
+    getArticlesPromiss.then((res) => {
+      this.setLength(res.data.length);
+      this.setTitle();
+      this.setText(res.data);
+    }).catch((err) => {
+      throw new Error(`Ошибка: ${err}`);
+    });
   }
 
   setName(name) {
@@ -40,7 +52,10 @@ export default class Intro {
     while (number > 20) {
       number -= 20;
     }
-    if (number === 1) {
+    if (number === 0) {
+      ending = 'ых';
+      artEnding = 'ей';
+    } else if (number === 1) {
       ending = 'ая';
       artEnding = 'ья';
     } else if (number > 1 && number < 5) {

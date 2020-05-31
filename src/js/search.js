@@ -32,6 +32,8 @@ export default class Search {
       }
     })
       .catch((err) => {
+        Search.renderLoader(false);
+        this.nothingFound.classList.remove('nothing-found_disabled');
         this.nothingFoundTitle.textContent = 'Во время запроса произошла ошибка';
         this.nothingFoundText.textContent = 'Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз';
         throw new Error(`Ошибка выдачи: ${err}`);

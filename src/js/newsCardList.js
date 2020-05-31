@@ -1,10 +1,11 @@
 export default class NewsCardList {
-  constructor(container, createCard, userStatus, mainApi) {
+  constructor(container, createCard, userStatus, mainApi, intro) {
     this.container = container;
     this.createCard = createCard;
     this.userStatus = userStatus;
     this.showMoreButton = this.container.parentNode.querySelector('.button_type_showmore');
     this.mainApi = mainApi;
+    this.intro = intro;
     this.cardsArray = [];
   }
 
@@ -36,41 +37,19 @@ export default class NewsCardList {
   }
 
   addSavedCard(savedData) {
-
     const cardData = savedData;
-    // cardData.keyword = savedData.keyword;
-    // cardData.title = savedData.title;
-    // cardData.description = savedData.text;
-    // cardData.source.name = savedData.source;
-    // cardData.url = savedData.link;
-    // cardData.urlToImage = savedData.image;
-    // cardData.owner = savedData.owner;
-    // cardData.cardId = savedData._id;
     cardData.description = savedData.text;
     cardData.url = savedData.link;
     cardData.urlToImage = savedData.image;
-
-    // cardData.date = NewsCard.convertDate(cardData.publishedAt, cardData);
-    // cardData.userStatus = userStatus;
-    // cardData.mainApi = mainApi;
-
-    // cardData.text = savedData.description;
-    // cardData.urlToImage = savedData.image;
-    // cardData.url = savedData.link;
-    const card = this.createCard(cardData, this.userStatus, this.mainApi);
+    const card = this.createCard(cardData, this.userStatus, this.mainApi, this.intro);
     card.create();
     card.renderSaved();
-    console.log(card);
     card.setSavedArticlesEventListeners();
-    console.log('hgfhgfh');
-    // card.renderIcon();
     this.container.appendChild(card.card);
-    // this.cardsArray.push(card);
-    // return card;
   }
 
   addCard(cardData) {
-    const card = this.createCard(cardData, this.userStatus, this.mainApi);
+    const card = this.createCard(cardData, this.userStatus, this.mainApi, this.intro);
     card.create();
     card.renderIcon();
     card.setCardEventListener();

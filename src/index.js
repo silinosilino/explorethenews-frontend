@@ -7,6 +7,7 @@ import Search from './js/search';
 import NewsCard from './js/newsCard';
 import NewsCardList from './js/newsCardList';
 import UserStatus from './js/userStatus';
+import Intro from './js/intro';
 
 import './vendor/normalize.css';
 import './style.css';
@@ -22,9 +23,9 @@ const mainApi = new MainApi('http://localhost:3000',
 
 const userStatus = new UserStatus(false);
 const signupButton = document.querySelector('.menue__item_type_feachered');
-
+const intro = new Intro();
 const createCard = (...args) => new NewsCard(...args);
-const cardList = new NewsCardList(document.querySelector('.search-results__news-grid'), createCard, userStatus, mainApi);
+const cardList = new NewsCardList(document.querySelector('.search-results__news-grid'), createCard, userStatus, mainApi, intro);
 const newsApi = new NewsApi();
 const search = new Search(newsApi, cardList);
 

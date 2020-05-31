@@ -1,5 +1,5 @@
 export default class NewsCard {
-  constructor(cardData, userStatus, mainApi) {
+  constructor(cardData, userStatus, mainApi, intro) {
     this.keyword = cardData.keyword.charAt(0).toUpperCase() + cardData.keyword.slice(1);
     this.title = cardData.title;
     this.text = cardData.description;
@@ -11,6 +11,7 @@ export default class NewsCard {
     this.userStatus = userStatus;
     this.mainApi = mainApi;
     this.cardId = cardData._id;
+    this.intro = intro;
   }
 
   create() {
@@ -26,6 +27,7 @@ export default class NewsCard {
         </button>
       </div>
       <div class="search-results__text-container">
+        <span id="error-response" class="error-message"></span>
         <p class="search-results__date"></p>
         <h4 class="search-results__title"></h4>
         <p class="search-results__text"></p>
@@ -43,12 +45,11 @@ export default class NewsCard {
     cardSource.textContent = this.source;
     const cardImage = this.card.querySelector('.search-results__news-photo');
     cardImage.src = this.image;
-    // cardImage.setAttribute('style', `background-image: url(${this.image})`);
-    cardImage.onerror = function () {
-      // cardImage.setAttribute('style', 'background-image: url("../images/avatar/1.jpg")');
+    cardImage.onerror = () => {
       cardImage.src = require('../images/avatar/1.jpg').default;
     };
     this.helpTooltip = this.card.querySelector('.tooltip_type_help');
+    this.responseErrorElement = this.card.querySelector('#error-response');
   }
 
   static convertDate(date, cardData) {
@@ -85,28 +86,18 @@ export default class NewsCard {
     keywordTooltip.textContent = this.keyword;
     const helpTooltip = this.card.querySelector('.tooltip_type_help');
     helpTooltip.textContent = 'Убрать из сохраненных';
-    // tooltip.classList.remove('tooltip_type_help');
-    // this.setRemoveSavedArticlesEventListeners();
   }
 
-
   save() {
-    // if (event.currentTarget.child.child.classList.containes('search-results__flag-pic_type_saved')) {
-    // console.log('in save', this.mainApi);
-    // console.log('event.target', event.target);
-    // console.log('event.currentTarget', event.currentTarget);
-    // console.log(event.currentTarget.closest('.search-results__news-card'));
-    // console.log(this);
     this.mainApi.createArticle(this.keyword, this.title, this.text, this.date,
       this.source, this.link, this.image)
       .then((res) => {
         this.markButtonFlag.classList.add('search-results__flag-pic_type_saved');
-        console.log(res);
-        console.log(res.data._id);
         this.articleId = res.data._id;
         this.setRemoveEventListeners();
       })
       .catch((err) => {
+        this.responseErrorElement.textContent = `${err.message}`;
         throw new Error(`Ошибка сохранения карточки: ${err}`);
       });
   }
@@ -119,10 +110,9 @@ export default class NewsCard {
         }
       })
       .catch((err) => {
+        this.responseErrorElement.textContent = `${err.message}`;
         throw new Error(`Ошибка удаления карточки: ${err}`);
       });
-
-    // this.card.parentNode.removeChild(this.card);
   }
 
   removeSavedCard() {
@@ -130,31 +120,24 @@ export default class NewsCard {
       .then((res) => {
         if (res) {
           this.card.parentNode.removeChild(this.card);
+          this.intro.update();
         }
       })
       .catch((err) => {
+        this.responseErrorElement.textContent = `${err.message}`;
         throw new Error(`Ошибка удаления карточки: ${err}`);
       });
   }
 
-
   setEventListeners() {
-    // constButton = this.markButton.querySelector('.search-results__icon_type_flag');
     this.markButton.addEventListener('click', this.save.bind(this));
-
-    //   } else if (event.currentTarget.firstChild.classList.containes('search-results__flag-pic_type_saved')) {
-    //     this.remove.bind(this);
-    //   }
-    // });
   }
 
   setCardEventListener() {
     this.card.addEventListener('click', (event) => {
       if (!event.target === this.markButton) {
-      // console.log('click');
         window.open(this.link, '_blank');
       }
-      // document.location.href = this.link;
     });
     this.markButton.addEventListener('mouseover', () => {
       if (!this.userStatus.getStatus()) {
@@ -167,42 +150,18 @@ export default class NewsCard {
       }
     });
   }
-  // this.card.addEventListener('hover', () => {
-  //   console.log('click');
-  //   // this.card.style = 'cursor: pointer';
-  //   this.card.style.cursor = 'pointer';
-  //   // document.location.href = this.link;
-  // });
-
 
   setRemoveEventListeners() {
     const markButtonSaved = this.markButton.querySelector('.search-results__flag-pic_type_saved');
     markButtonSaved.addEventListener('click', () => {
-      console.log('click on saved card');
-      console.log(this);
       this.remove(this.articleId);
     });
   }
 
   setSavedArticlesEventListeners() {
-    // this.markButton.addEventListener('click', this.removeSavedCard(this.articleId));
     const markButtonDelete = this.card.querySelector('.search-results__icon_type_trash');
-    // console.log('Where am I?', markButtonDelete);
     markButtonDelete.addEventListener('click', () => {
-      console.log('click on saved card');
-      console.log(this);
       this.removeSavedCard();
     });
   }
-
-  // setEventListeners() {
-  //   const flagButton = this.markButton.querySelector('.search-results__icon_type_flag');
-  //   flagButton.addEventListener('click', (event) => {
-  //     if (event.currentTarget.classList.containes('search-results__flag-pic_type_loggedin')) {
-  //       this.save.bind(this);
-  //     } else if (event.currentTarget.firstChild.classList.containes('search-results__flag-pic_type_saved')) {
-  //       this.remove.bind(this);
-  //     }
-  //   });
-  // }
 }
