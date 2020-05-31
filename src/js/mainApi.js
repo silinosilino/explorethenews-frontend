@@ -4,12 +4,10 @@ export default class MainApi {
     this.headers = headers;
   }
 
-
   signup(name, email, password) {
     return fetch(`${this.baseUrl}/signup`, {
       method: 'POST',
       headers: this.headers,
-      // mode: 'no-cors',
       body: JSON.stringify({
         name,
         email,

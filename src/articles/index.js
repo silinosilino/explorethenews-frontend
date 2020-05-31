@@ -1,13 +1,7 @@
-// import Popup from '../js/popup';
-// import Form from '../js/form';
-import Header from '../js/header';
 import MainApi from '../js/mainApi';
-// import NewsApi from '../js/newsApi';
-// import Search from '../js/search';
 import NewsCard from '../js/newsCard';
 import NewsCardList from '../js/newsCardList';
 import Intro from '../js/intro';
-import UserStatus from '../js/userStatus';
 
 import '../vendor/normalize.css';
 import './articles.css';

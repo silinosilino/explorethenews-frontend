@@ -17,7 +17,6 @@ export default class Popup {
     this.userStatus = userStatus;
     this.cardList = cardList;
     this.createValidator = createValidator;
-    // this.signupButton = document.querySelector('.menue__item_type_feachered');
   }
 
   clearContent() {
@@ -74,7 +73,6 @@ export default class Popup {
     this.popupContent.appendChild(this.popupCloser);
     this.setPopupEventListeners();
   }
-
 
   setEventListeners() {
     this.popupCloser.addEventListener('click', this.close.bind(this));
@@ -146,7 +144,6 @@ export default class Popup {
           this.element.classList.add('signin');
           this.element.classList.remove('signup');
           this.header.render('isNotLoggedIn');
-          // this.element.textContent = 'Войти';
         })
         .catch((err) => {
           this.responseErrorElement.textContent = `${err.message}`;
