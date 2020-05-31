@@ -83,7 +83,7 @@ const createValidator = (...args) => new Form(...args);
 
 const popupSignup = new Popup(signupButton, mainApi, header, userStatus, cardList, createValidator);
 // popupSignup.setContent();
-popupSignup.configureInputPopup();
+// popupSignup.configureInputPopup();
 // console.log(popupSignup.form);
 popupSignup.setEventListeners();
 // popupSignup.setPopupEventListeners(createValidator);
