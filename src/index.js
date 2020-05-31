@@ -7,7 +7,6 @@ import Search from './js/search';
 import NewsCard from './js/newsCard';
 import NewsCardList from './js/newsCardList';
 import UserStatus from './js/userStatus';
-// import UserInfo from './js/userInfo'
 
 import './vendor/normalize.css';
 import './style.css';
@@ -81,11 +80,11 @@ const createValidator = (...args) => new Form(...args);
 
 // const signupButton = document.querySelector('.signup');
 
-const popupSignup = new Popup(signupButton, mainApi, header, userStatus, cardList, createValidator);
+const popup = new Popup(signupButton, mainApi, header, userStatus, cardList, createValidator);
 // popupSignup.setContent();
 // popupSignup.configureInputPopup();
 // console.log(popupSignup.form);
-popupSignup.setEventListeners();
+popup.setEventListeners();
 // popupSignup.setPopupEventListeners(createValidator);
 
 // const extraButton = document.querySelector('.link_type_popup');

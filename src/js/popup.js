@@ -69,7 +69,6 @@ export default class Popup {
         </form>
     `);
     }
-    // this.form = this.popup.querySelector('.popup__form');
     this.setPopupEventListeners();
   }
 
@@ -94,7 +93,7 @@ export default class Popup {
         this.element.classList.remove('signout');
         return;
       }
-      this.configureInputPopup(event);
+      this.configurePopup(event);
     });
   }
 
@@ -114,7 +113,7 @@ export default class Popup {
     }
   }
 
-  configureInputPopup(event) {
+  configurePopup(event) {
     this.open();
     this.setContent(event);
     this.form = this.popup.querySelector('.popup__form');
@@ -172,7 +171,7 @@ export default class Popup {
   setPopupEventListeners() {
     const extraButton = document.querySelector('.link_type_popup');
     extraButton.addEventListener('click', (event) => {
-      this.configureInputPopup(event);
+      this.configurePopup(event);
     });
   }
 }

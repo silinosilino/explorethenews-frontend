@@ -3,6 +3,9 @@ export default class Search {
     this.form = document.querySelector('.search__form');
     this.newsApi = newsApi;
     this.cardList = cardList;
+    this.nothingFound = document.querySelector('.nothing-found');
+    this.nothingFoundTitle = this.nothingFound.querySelector('.nothing-found__title');
+    this.nothingFoundText = this.nothingFound.querySelector('.nothing-found__text');
   }
 
   findNews(event) {
@@ -16,29 +19,26 @@ export default class Search {
     searchResults.classList.add('search-results_disabled');
     Search.renderLoader(true);
     const keyword = this.form.elements.search.value;
-    // const keyword = inputVal.charAt(0).toUpperCase() + inputVal.slice(1);
     const newsFinderPromise = this.newsApi.getNews(keyword);
-    console.log(keyword);
     newsFinderPromise.then((res) => {
-      // this.checkValidity(this.newsList);
       const newsList = Array.from(res.articles).filter((cardData) => !cardData.description.match(/(^http)|(----------)/));
       if (newsList.length < 1) {
-        Search.renderNothingFound(true);
+        this.renderNothingFound(true);
         Search.renderLoader(false);
       } else {
         this.cardList.render(newsList, keyword);
         Search.renderLoader(false);
         searchResults.classList.remove('search-results_disabled');
-        console.log(this.newsList);
       }
     })
       .catch((err) => {
+        this.nothingFoundTitle.textContent = 'Во время запроса произошла ошибка';
+        this.nothingFoundText.textContent = 'Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз';
         throw new Error(`Ошибка выдачи: ${err}`);
       });
   }
 
   setEventListener() {
-    console.log('this.form', this.form);
     this.form.addEventListener('submit', this.findNews.bind(this));
   }
 
@@ -62,18 +62,13 @@ export default class Search {
     }
   }
 
-  static renderNothingFound(isNothingFound) {
-    const nothingFound = document.querySelector('.nothing-found');
+  renderNothingFound(isNothingFound) {
     if (isNothingFound) {
-      nothingFound.classList.remove('nothing-found_disabled');
+      this.nothingFound.classList.remove('nothing-found_disabled');
+      this.nothingFoundTitle.textContent = 'Ничего не найдено';
+      this.nothingFoundText.textContent = 'К сожалению, по вашему запросу ничего не найдено.';
     } else {
-      nothingFound.classList.add('nothing-found_disabled');
+      this.nothingFound.classList.add('nothing-found_disabled');
     }
   }
 }
-
-
-//   checkValidity() {
-//     return this.newsList.filter((cardData) => !cardData.description.match(/^http/));
-//   }
-// }
