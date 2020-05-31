@@ -1,13 +1,13 @@
-import Popup from './js/popup';
-import Form from './js/form';
-import Header from './js/header';
-import MainApi from './js/mainApi';
-import NewsApi from './js/newsApi';
-import Search from './js/search';
-import NewsCard from './js/newsCard';
-import NewsCardList from './js/newsCardList';
-import UserStatus from './js/userStatus';
-import Intro from './js/intro';
+import Popup from './js/components/popup';
+import Form from './js/components/form';
+import Header from './js/components/header';
+import MainApi from './js/api/mainApi';
+import NewsApi from './js/api/newsApi';
+import Search from './js/components/search';
+import NewsCard from './js/components/newsCard';
+import NewsCardList from './js/components/newsCardList';
+import UserStatus from './js/components/userStatus';
+import Intro from './js/components/intro';
 
 import './vendor/normalize.css';
 import './style.css';
@@ -27,7 +27,6 @@ const createCard = (...args) => new NewsCard(...args);
 const cardList = new NewsCardList(document.querySelector('.search-results__news-grid'), createCard, userStatus, mainApi, intro);
 const newsApi = new NewsApi();
 const search = new Search(newsApi, cardList);
-
 
 const checkToken = () => {
   if (!token) {

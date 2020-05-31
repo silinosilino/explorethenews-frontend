@@ -46,7 +46,7 @@ export default class NewsCard {
     const cardImage = this.card.querySelector('.search-results__news-photo');
     cardImage.src = this.image;
     cardImage.onerror = () => {
-      cardImage.src = require('../images/avatar/1.jpg').default;
+      cardImage.src = require('../../images/avatar/1.jpg').default;
     };
     this.helpTooltip = this.card.querySelector('.tooltip_type_help');
     this.responseErrorElement = this.card.querySelector('#error-response');

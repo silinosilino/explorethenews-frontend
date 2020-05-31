@@ -1,7 +1,7 @@
-import MainApi from '../js/mainApi';
-import NewsCard from '../js/newsCard';
-import NewsCardList from '../js/newsCardList';
-import Intro from '../js/intro';
+import MainApi from '../js/api/mainApi';
+import NewsCard from '../js/components/newsCard';
+import NewsCardList from '../js/components/newsCardList';
+import Intro from '../js/components/intro';
 
 import '../vendor/normalize.css';
 import './articles.css';
