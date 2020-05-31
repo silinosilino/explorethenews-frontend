@@ -1,0 +1,12 @@
+.about-author__picture{
+  width: 100%;
+  max-width: 464px;
+  height: auto;
+  border-radius: 1000px;
+}
+
+@media screen and (max-width: 600px) {
+  .about-author__picture{
+    margin-bottom: 24px;
+  }
+}

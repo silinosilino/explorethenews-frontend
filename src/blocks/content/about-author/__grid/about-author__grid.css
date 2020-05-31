@@ -1,0 +1,29 @@
+.about-author__grid{
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 56px;
+  width: calc(100% - 208px);
+}
+
+@media screen and (max-width: 768px) {
+  .about-author__grid{
+    width: calc(100% - 80px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .about-author__grid{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: calc(100% - 48px);
+  }
+}
+
+@media screen and (max-width: 435px) {
+  .about-author__grid{
+    display: flex;
+    flex-flow: column;
+    width: calc(100% - 32px);
+  }
+}

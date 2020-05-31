@@ -1,0 +1,12 @@
+.logo{
+  width: 200px;
+  height: 24px;
+  z-index: 2;
+  font-family: Roboto Slab;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  color: white;
+  display: inline-block;
+  }

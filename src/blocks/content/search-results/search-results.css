@@ -1,0 +1,30 @@
+@import url("./__subtitle/search-results__subtitle.css");
+@import url("./__news-grid/search-results__news-grid.css");
+@import url("./__news-card/search-results__news-card.css");
+@import url("./__news-photo/search-results__news-photo.css");
+@import url("./__date/search-results__date.css");
+@import url("./__title/search-results__title.css");
+@import url("./__subtitle/search-results__subtitle.css");
+@import url("./__text/search-results__text.css");
+@import url("./__sourse/search-results__source.css");
+@import url("./__mark-button/search-results__mark-button.css");
+@import url("./__icon/search-results__icon.css");
+@import url("./__icon/_type/search-results__icon_type_flag.css");
+@import url("./__icon/_type/search-results__icon_type_trash.css");
+@import url("./__text-container/search-results__text-container.css");
+@import url("./__trash-pic/search-results__trash-pic.css");
+@import url("./__flag-pic/search-results__flag-pic.css");
+@import url("./__image-container/search-result__image-container.css");
+
+.search-results{
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  background-color: #F5F6F7;
+  padding-top: 80px;
+}
+
+.search-results_disabled{
+  display: none;
+}

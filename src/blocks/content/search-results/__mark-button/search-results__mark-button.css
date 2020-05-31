@@ -1,0 +1,36 @@
+.search-results__mark-button{
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: white;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+/* .search-results__mark-button:hover .search-results__flag-pic{
+  stroke: #1A1B22;
+} */
+
+.search-results__mark-button:hover .search-results__trash-pic{
+  fill: #1A1B22;
+}
+
+/* .search-results__mark-button:hover .tooltip{
+  display: block;
+} */
+
+/* .search-results__mark-button:active .search-results__flag-pic{
+  fill: blue;
+  stroke: blue;
+  transition: 0.01s ease;
+} */
+
+.search-results__mark-button:focus{
+  border: none;
+}

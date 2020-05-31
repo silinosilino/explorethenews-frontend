@@ -1,0 +1,8 @@
+.search-results__news-card{
+  width: 100%;
+  max-width: 400px;
+  background-color: white;
+  border-radius: 15px;
+  position: relative;
+  cursor: pointer;
+}

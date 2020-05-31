@@ -1,0 +1,51 @@
+.menue__icon{
+  display: none;
+  width: 24px;
+  height: 24px;
+  fill: none;
+  margin-top: 16px;
+  width: 24px;
+  height: 24px;
+}
+
+.menue__icon_path{
+  fill: white;
+}
+
+.menue__icon:hover .menue{
+  display: block;
+}
+
+@media screen and (max-width: 600px) {
+  .menue__icon {
+    display: block;
+  }
+  .menue__icon:hover ~.menue{
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    background-color: black;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 286px;
+    align-items: flex-start;
+    padding: 72px 16px 24px 16px;
+    box-sizing: border-box;
+  }
+
+  .menue__icon:hover ~.header__line{
+    display: block;
+    z-index: 3;
+  }
+
+  .menue__icon:hover ~.header__close{
+    display: block;
+    z-index: 3;
+  }
+
+  .menue__icon_disabled{
+    display: none;
+  }
+
+}

@@ -1,0 +1,27 @@
+.search-results__text-container{
+  width: 100%;
+  min-height: 304px;
+  padding-right: 24px;
+  padding-left: 24px;
+  box-sizing: border-box;
+}
+
+
+@media screen and (max-width: 980px) {
+  .search-results__text-container{
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+}
+
+@media screen and (max-width: 710px) {
+  .search-results__text-container{
+    min-height: 250px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .search-results__text-container{
+    min-height: 180px;
+  }
+}

@@ -1,0 +1,21 @@
+.menue__item{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 900px) {
+  .menue__item{
+    font-size: 16зpx;
+  }
+}
+
+
+
+
+

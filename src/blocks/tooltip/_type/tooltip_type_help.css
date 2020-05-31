@@ -1,0 +1,9 @@
+.tooltip_type_help{
+  left: -187px;
+  bottom: 0px;
+  width: 182px;
+  /* display: none; */
+  font-size: 10px;
+  line-height: 12px;
+  padding-top: 16px;
+}

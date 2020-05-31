@@ -1,0 +1,15 @@
+.button{
+  height: 64;
+  background-color: white;
+  box-sizing: border-box;
+  padding: 24px 21px 21px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  border-radius: 100px;
+}
+.button_type_disabled{
+  display: none;
+}

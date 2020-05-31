@@ -1,0 +1,12 @@
+.search-results_type_page-articles{
+  padding-top: 62px;
+  padding-bottom: 62px;
+  height: auto;
+}
+
+.search-results_type_page-articles .search-results__news-grid{
+  grid-auto-flow: row;
+  row-gap: 16px;
+  margin-bottom: 0;
+}
+

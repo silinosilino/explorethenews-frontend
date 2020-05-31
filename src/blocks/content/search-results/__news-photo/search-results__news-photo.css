@@ -1,0 +1,11 @@
+.search-results__news-photo{
+  width: 100%;
+  height: 100%;
+  height: 272px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  margin-bottom: 20px;
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+}
