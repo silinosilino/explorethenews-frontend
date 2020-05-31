@@ -14,3 +14,7 @@
   box-sizing: border-box;
   transition: display 1s ease-in;
 }
+
+.tooltip_disabled{
+  display: none;
+}

@@ -22,7 +22,7 @@ export default class NewsCard {
           <svg class="search-results__icon search-results__icon_type_flag">
             <path class="search-results__flag-pic"></path>
           </svg>
-          <span class="tooltip tooltip_type_help">Войдите, чтобы сохранять статьи</span>
+          <span class="tooltip tooltip_type_help tooltip_disabled">Войдите, чтобы сохранять статьи</span>
         </button>
       </div>
       <div class="search-results__text-container">
@@ -48,6 +48,7 @@ export default class NewsCard {
       // cardImage.setAttribute('style', 'background-image: url("../images/avatar/1.jpg")');
       cardImage.src = require('../images/avatar/1.jpg').default;
     };
+    this.helpTooltip = this.card.querySelector('.tooltip_type_help');
   }
 
   static convertDate(date, cardData) {
@@ -64,11 +65,10 @@ export default class NewsCard {
   renderIcon() {
     this.markButton = this.card.querySelector('.search-results__mark-button');
     this.markButtonFlag = this.markButton.querySelector('.search-results__flag-pic');
-    console.log(this.userStatus);
+    this.markButtonFlag.classList.remove('search-results__flag-pic_type_loggedin');
     if (this.userStatus.getStatus()) {
       this.markButtonFlag.classList.add('search-results__flag-pic_type_loggedin');
       this.setEventListeners();
-      console.log('in render', this.mainApi);
     }
   }
 
@@ -149,18 +149,31 @@ export default class NewsCard {
   }
 
   setCardEventListener() {
-    this.card.addEventListener('click', () => {
+    this.card.addEventListener('click', (event) => {
+      if (!event.target === this.markButton) {
       // console.log('click');
-      window.open(this.link, '_blank');
+        window.open(this.link, '_blank');
+      }
       // document.location.href = this.link;
     });
-    // this.card.addEventListener('hover', () => {
-    //   console.log('click');
-    //   // this.card.style = 'cursor: pointer';
-    //   this.card.style.cursor = 'pointer';
-    //   // document.location.href = this.link;
-    // });
+    this.markButton.addEventListener('mouseover', () => {
+      if (!this.userStatus.getStatus()) {
+        this.helpTooltip.classList.remove('tooltip_disabled');
+      }
+    });
+    this.markButton.addEventListener('mouseout', () => {
+      if (!this.userStatus.getStatus()) {
+        this.helpTooltip.classList.add('tooltip_disabled');
+      }
+    });
   }
+  // this.card.addEventListener('hover', () => {
+  //   console.log('click');
+  //   // this.card.style = 'cursor: pointer';
+  //   this.card.style.cursor = 'pointer';
+  //   // document.location.href = this.link;
+  // });
+
 
   setRemoveEventListeners() {
     const markButtonSaved = this.markButton.querySelector('.search-results__flag-pic_type_saved');

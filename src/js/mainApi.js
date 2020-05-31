@@ -18,7 +18,10 @@ export default class MainApi {
     })
       .then((res) => {
         if (!res.ok) {
-          return Promise.reject(new Error(`Ошибка: ${res.status}`));
+          if (res.status === 409) {
+            return Promise.reject(new Error('Ошибка: такой пользователь уже существует'));
+          }
+          return Promise.reject(new Error(`Ошибка: ${res.status}, ${res.statusText}`));
         }
         return res.json();
       });
@@ -35,7 +38,10 @@ export default class MainApi {
     })
       .then((res) => {
         if (!res.ok) {
-          return Promise.reject(new Error(`Ошибка: ${res.status}`));
+          if (res.status === 401) {
+            return Promise.reject(new Error('Ошибка: неправильный логин или пароль'));
+          }
+          return Promise.reject(new Error(`Ошибка: ${res.status}, ${res.statusText}`));
         }
         return res.json();
       });
@@ -50,7 +56,7 @@ export default class MainApi {
     })
       .then((res) => {
         if (!res.ok) {
-          return Promise.reject(new Error(`Ошибка: ${res.status}`));
+          return Promise.reject(new Error(`Ошибка: ${res.status}, ${res.statusText}`));
         }
         return res.json();
       });

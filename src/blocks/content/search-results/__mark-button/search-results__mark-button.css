@@ -21,9 +21,9 @@
   fill: #1A1B22;
 }
 
-.search-results__mark-button:hover .tooltip{
+/* .search-results__mark-button:hover .tooltip{
   display: block;
-}
+} */
 
 /* .search-results__mark-button:active .search-results__flag-pic{
   fill: blue;

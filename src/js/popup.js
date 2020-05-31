@@ -49,6 +49,7 @@ export default class Popup {
             <span class="popup__input-title">Имя</span>
             <input type="text" name="username" class="popup__input popup__input_type_name" placeholder="Введите своё имя">
             <span id="error-username" class="error-message"></span>
+            <span id="error-response" class="error-message"></span>
             <button type="submit" class="button button_type_popup">Зарегистрироваться</button>
             <span class="popup__input-title popup__input-title_type_centered">или <p class="link_type_popup signin">Войти</p></span>
         </form>
@@ -64,6 +65,7 @@ export default class Popup {
             <span class="popup__input-title">Пароль</span>
             <input type="text" name="password" class="popup__input popup__input_type_name" placeholder="Введите пароль">
             <span id="error-password" class="error-message"></span>
+            <span id="error-response" class="error-message"></span>
             <button type="submit" class="button button_type_popup">Войти</button>
             <span class="popup__input-title popup__input-title_type_centered">или <p class="link link_type_popup signup">Зарегистрироваться</p></span>
         </form>
@@ -90,6 +92,7 @@ export default class Popup {
         this.header.render('isNotLoggedIn');
         this.userStatus.isLoggedIn = false;
         localStorage.setItem('explorethenews', 0);
+        this.cardList.updateIcon();
         this.element.classList.remove('signout');
         return;
       }
@@ -117,6 +120,7 @@ export default class Popup {
     this.open();
     this.setContent(event);
     this.form = this.popup.querySelector('.popup__form');
+    this.responseErrorElement = this.form.querySelector('#error-response');
     this.createValidator(this.form).setEventListeners();
     this.setFormEventListeners();
   }
@@ -144,6 +148,7 @@ export default class Popup {
           // this.element.textContent = 'Войти';
         })
         .catch((err) => {
+          this.responseErrorElement.textContent = `${err.message}`;
           throw new Error(`Ошибка: ${err}`);
         });
     } else if (event.currentTarget.name === 'signin') {
@@ -163,6 +168,7 @@ export default class Popup {
           this.close();
         })
         .catch((err) => {
+          this.responseErrorElement.textContent = `${err.message}`;
           throw new Error(`Ошибка: ${err}`);
         });
     }
